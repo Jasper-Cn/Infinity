@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://ck17q1kicx35t"]
+
+[ext_resource type="PackedScene" uid="uid://d13baxhqbwdm6" path="res://scenes/ui.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dkvrwufrtbtty" path="res://scripts/utils/camera_effects.gd" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://bp7o7pqm85d0f" path="res://art/Infinity Tile Map.png" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cnd4o18ilxp8f" path="res://scenes/subject.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://1oudns23ey8i" path="res://scenes/settings.tscn" id="5_iywne"]
+
+[sub_resource type="Environment" id="Environment_oooul"]
+background_mode = 3
+
+[sub_resource type="TileSet" id="TileSet_fwlhj"]
+
+[node name="game" type="Node2D" unique_id=404250698]
+
+[node name="ui" parent="." unique_id=1764728883 instance=ExtResource("1_uwrxv")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=244447270]
+script = ExtResource("2_yqjtg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=359039304]
+environment = SubResource("Environment_oooul")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1596113660]
+position = Vector2(0, -45)
+scale = Vector2(0.937, 0.937)
+texture = ExtResource("3_lbhrr")
+
+[node name="Subject0" parent="." unique_id=1716625559 instance=ExtResource("3_lnu2h")]
+position = Vector2(0, 450)
+color = Color(0.9019608, 0.72156864, 0.6862745, 1)
+coord_1 = Vector2(0, 1)
+coord_2 = Vector2(0, 2)
+coord_3 = Vector2(0, 3)
+coord_4 = Vector2(0, 0)
+
+[node name="Subject1" parent="." unique_id=1732215189 instance=ExtResource("3_lnu2h")]
+position = Vector2(-90, -720)
+color = Color(0.95686275, 0.8, 0.8, 1)
+self_number = 1
+coord_2 = Vector2(1, 1)
+coord_3 = Vector2(1, 2)
+coord_4 = Vector2(2, 0)
+
+[node name="Subject2" parent="." unique_id=176163047 instance=ExtResource("3_lnu2h")]
+position = Vector2(-630, -720)
+color = Color(0.9882353, 0.8980392, 0.8039216, 1)
+self_number = 2
+coord_1 = Vector2(0, 1)
+coord_2 = Vector2(1, 0)
+coord_3 = Vector2(2, 0)
+coord_4 = Vector2(3, 0)
+
+[node name="Subject3" parent="." unique_id=1947329708 instance=ExtResource("3_lnu2h")]
+position = Vector2(360, -720)
+color = Color(1, 0.9490196, 0.8, 1)
+self_number = 3
+coord_3 = Vector2(2, 1)
+coord_4 = Vector2(3, 1)
+
+[node name="Subject4" parent="." unique_id=1848087674 instance=ExtResource("3_lnu2h")]
+position = Vector2(-630, -450)
+color = Color(0.8509804, 0.91764706, 0.827451, 1)
+self_number = 4
+coord_1 = Vector2(0, 1)
+coord_2 = Vector2(1, 0)
+coord_3 = Vector2(2, 0)
+coord_4 = Vector2(0, 0)
+
+[node name="Subject5" parent="." unique_id=1881981243 instance=ExtResource("3_lnu2h")]
+position = Vector2(450, -450)
+color = Color(0.8156863, 0.8784314, 0.8901961, 1)
+self_number = 5
+coord_2 = Vector2(1, 1)
+coord_3 = Vector2(2, 0)
+coord_4 = Vector2(2, 1)
+
+[node name="Subject6" parent="." unique_id=406337915 instance=ExtResource("3_lnu2h")]
+position = Vector2(-630, -180)
+color = Color(0.7882353, 0.85490197, 0.972549, 1)
+self_number = 6
+coord_1 = Vector2(0, 1)
+coord_2 = Vector2(0, 2)
+coord_3 = Vector2(1, 0)
+coord_4 = Vector2(2, 0)
+
+[node name="Subject7" parent="." unique_id=1581580784 instance=ExtResource("3_lnu2h")]
+position = Vector2(450, -180)
+color = Color(0.8117647, 0.8862745, 0.9529412, 1)
+self_number = 7
+coord_1 = Vector2(0, 1)
+coord_2 = Vector2(1, 1)
+coord_3 = Vector2(2, 1)
+coord_4 = Vector2(2, 2)
+
+[node name="Subject8" parent="." unique_id=816368259 instance=ExtResource("3_lnu2h")]
+position = Vector2(-630, 180)
+color = Color(0.8509804, 0.8235294, 0.9137255, 1)
+self_number = 8
+coord_1 = Vector2(0, 1)
+coord_2 = Vector2(1, 0)
+coord_3 = Vector2(2, 0)
+coord_4 = Vector2(2, 1)
+
+[node name="Subject9" parent="." unique_id=1888462937 instance=ExtResource("3_lnu2h")]
+position = Vector2(450, 180)
+color = Color(0.91764706, 0.81960785, 0.8627451, 1)
+self_number = 9
+coord_2 = Vector2(1, 1)
+coord_3 = Vector2(2, 1)
+coord_4 = Vector2(0, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1598119369]
+visible = false
+position = Vector2(-45, -45)
+scale = Vector2(5.625, 5.625)
+tile_set = SubResource("TileSet_fwlhj")
+
+[node name="Settings" parent="." unique_id=271222457 instance=ExtResource("5_iywne")]

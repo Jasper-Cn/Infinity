@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d13baxhqbwdm6"]
+
+[ext_resource type="Script" uid="uid://dorugav5a4nj5" path="res://scripts/ui/ui.gd" id="1_nt7q6"]
+
+[node name="Ui" type="CanvasLayer" unique_id=340363726 node_paths=PackedStringArray("settings", "rotate", "flip", "transparency", "ui")]
+script = ExtResource("1_nt7q6")
+settings = NodePath("Panel/VBoxContainer/Settings")
+rotate = NodePath("Panel/VBoxContainer/Rotate")
+flip = NodePath("Panel/VBoxContainer/Flip")
+transparency = NodePath("Panel/VBoxContainer/Transparency")
+ui = NodePath("Panel/VBoxContainer/UI")
+
+[node name="Panel" type="Panel" parent="." unique_id=1760701443]
+offset_right = 433.0
+offset_bottom = 429.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=266278716]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_right = 436.0
+offset_bottom = 385.0
+theme_override_constants/separation = 19
+
+[node name="Settings" type="Label" parent="Panel/VBoxContainer" unique_id=151139914]
+layout_mode = 2
+text = "Q = open settings"
+
+[node name="Rotate" type="Label" parent="Panel/VBoxContainer" unique_id=713321020]
+layout_mode = 2
+text = "R = rotate 90 deg"
+
+[node name="Flip" type="Label" parent="Panel/VBoxContainer" unique_id=498112803]
+layout_mode = 2
+text = "F = flip horizontally"
+
+[node name="Transparency" type="Label" parent="Panel/VBoxContainer" unique_id=906941563]
+layout_mode = 2
+text = "T = make semi-transparent"
+
+[node name="Numbers" type="Label" parent="Panel/VBoxContainer" unique_id=989128876]
+visible = false
+layout_mode = 2
+text = "Numbers = show/hide
+that nubmer block"
+
+[node name="UI" type="Label" parent="Panel/VBoxContainer" unique_id=1744126317]
+layout_mode = 2
+text = "E = show/hide the UI"

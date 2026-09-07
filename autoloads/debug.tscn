@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b7fqgk1xx0m1i"]
+
+[ext_resource type="Script" uid="uid://coirqubf5arsw" path="res://autoloads/debug.gd" id="1_ikwhb"]
+
+[node name="Debug" type="CanvasLayer" unique_id=1522452163 node_paths=PackedStringArray("debug_toggle_btn", "fps_label", "debug_v_box")]
+visible = false
+script = ExtResource("1_ikwhb")
+debug_toggle_btn = NodePath("DebugVBox/DebugToggleLabelHBox/DebugToggle")
+fps_label = NodePath("DebugVBox/FPSLabel")
+debug_v_box = NodePath("DebugVBox")
+
+[node name="DebugVBox" type="VBoxContainer" parent="." unique_id=1729485533]
+offset_right = 248.0
+offset_bottom = 151.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="DebugVBox" unique_id=2037323084]
+layout_mode = 2
+text = "debug info"
+
+[node name="DebugToggleLabelHBox" type="HBoxContainer" parent="DebugVBox" unique_id=886670919]
+layout_mode = 2
+
+[node name="DebugToggleLabel" type="Label" parent="DebugVBox/DebugToggleLabelHBox" unique_id=711880245]
+layout_mode = 2
+text = "debug mode"
+
+[node name="DebugToggle" type="Button" parent="DebugVBox/DebugToggleLabelHBox" unique_id=29336339]
+layout_mode = 2
+toggle_mode = true
+text = "off"
+
+[node name="FPSLabel" type="Label" parent="DebugVBox" unique_id=1484260020]
+layout_mode = 2
+text = "fps: "
+
+[connection signal="button_up" from="DebugVBox/DebugToggleLabelHBox/DebugToggle" to="." method="_on_debug_toggle_button_up"]

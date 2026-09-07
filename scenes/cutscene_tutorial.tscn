@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bbjovh6gli8wl"]
+
+[ext_resource type="Script" uid="uid://dl6fsltd4e43y" path="res://scripts/ui/tutorial.gd" id="1_a6fc2"]
+[ext_resource type="Shader" uid="uid://clcxqva8myghp" path="res://resources/fade_sine.tres" id="2_a6fc2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lcpb"]
+shader = ExtResource("2_a6fc2")
+
+[node name="Tutorial" type="Node2D" unique_id=965549165]
+script = ExtResource("1_a6fc2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1232120192]
+
+[node name="TutorialImage" type="Sprite2D" parent="CanvasLayer" unique_id=1665876256]
+position = Vector2(576, 313)
+scale = Vector2(9, 4.890625)
+
+[node name="TutorialLabel" type="Label" parent="CanvasLayer" unique_id=1213479873]
+offset_right = 727.0
+offset_bottom = 67.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "dashkfkjdhs"
+
+[node name="ClickToContinueLabel" type="Label" parent="CanvasLayer" unique_id=2063160403]
+modulate = Color(1, 1, 1, 0.5254902)
+material = SubResource("ShaderMaterial_4lcpb")
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -387.0
+offset_top = -67.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Click to continue"
+
+[node name="StartButton" type="Button" parent="CanvasLayer" unique_id=255640173]
+visible = false
+offset_left = 393.0
+offset_top = 319.0
+offset_right = 757.0
+offset_bottom = 456.0
+text = "START GAME :D"
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]

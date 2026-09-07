@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6l454pm7o4ra"]
+
+[ext_resource type="Script" uid="uid://11je2fqgcpqg" path="res://autoloads/audio_player.gd" id="1_a0443"]
+[ext_resource type="Script" uid="uid://btiigmn8bubro" path="res://resources/SFX.gd" id="2_2dxq5"]
+[ext_resource type="AudioStream" uid="uid://dk7h0acm4eppx" path="res://audio/BTN_DOWN_CLICK.ogg" id="3_h5luj"]
+
+[sub_resource type="Resource" id="Resource_kslrv"]
+script = ExtResource("2_2dxq5")
+sound_effect = ExtResource("3_h5luj")
+volume = 5.0
+metadata/_custom_type_script = "uid://btiigmn8bubro"
+
+[node name="AudioPlayer" type="Node2D" unique_id=1841846907]
+script = ExtResource("1_a0443")
+sound_effects = Array[ExtResource("2_2dxq5")]([SubResource("Resource_kslrv")])

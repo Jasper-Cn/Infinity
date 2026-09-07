@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://wnb01h1hf6uf"]
+
+[ext_resource type="Script" uid="uid://dvllwtsgjuwth" path="res://scripts/credits.gd" id="1_0bpdh"]
+[ext_resource type="LabelSettings" uid="uid://nnk7ud04mjqa" path="res://resources/smallLabelTitle.tres" id="2_2ckv8"]
+
+[node name="Credits" type="CanvasLayer" unique_id=763178605]
+script = ExtResource("1_0bpdh")
+popup_name = "Credits"
+
+[node name="Panel" type="Panel" parent="." unique_id=650386394]
+self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -190.0
+offset_right = 280.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=2044606492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VB" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1688750231]
+layout_mode = 2
+
+[node name="CREDITS" type="Label" parent="Panel/MarginContainer/VB" unique_id=822718321]
+layout_mode = 2
+text = "CREDITS"
+label_settings = ExtResource("2_2ckv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CREDITS2" type="Label" parent="Panel/MarginContainer/VB" unique_id=1606341790]
+layout_mode = 2
+text = "penguin
+playername
+superduperpotato1208"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VB" unique_id=1849685173]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Back"
+
+[connection signal="pressed" from="Panel/MarginContainer/VB/BackButton" to="." method="_on_back_button_pressed"]
