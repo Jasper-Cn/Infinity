@@ -1,2 +1,12 @@
-res://scenes/subject.tscn
+res://scenes/game.tscn
 res://resources/fade_sine.tres
+res://scenes/board.gd
+res://resources/default.tres
+res://resources/Label.tres
+res://autoloads/global.gd
+res://scripts/subject.gd
+res://resources/Label_Normal.tres
+res://scripts/board.gd
+res://scripts/hb.gd
+res://scenes/ui.tscn
+res://resources/new_theme.tres

@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://b5ddnoxvofmew"]
+
+[ext_resource type="FontFile" uid="uid://bcg4lqe8nq0h5" path="res://resources/cour.ttf" id="1_121kx"]
+[ext_resource type="StyleBox" uid="uid://dk10p4i87wvd5" path="res://resources/Label_Normal.tres" id="2_d3ra7"]
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 43
+Label/fonts/font = ExtResource("1_121kx")
+Label/styles/normal = ExtResource("2_d3ra7")

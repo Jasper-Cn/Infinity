@@ -1,9 +1,8 @@
 extends Node2D
 class_name Subject
 
-const TILE_SIZE: Vector2 = Vector2(90, 90)
-var is_dragging: bool = false
-var is_touching_mouse: bool = false
+const TILE_SIZE_VECTOR = Vector2(Global.TILE_SIZE, Global.TILE_SIZE)
+
 @export var color: Color = Color("WHITE")
 @export var self_number: int
 @onready var color_rect_0: ColorRect = $ColorRect0
@@ -17,6 +16,9 @@ var is_touching_mouse: bool = false
 @export var coord_4: Vector2
 @export var ap_rotation: AnimationPlayer
 @export var ap_flip: AnimationPlayer
+
+var is_dragging: bool = false
+var is_touching_mouse: bool = false
 var coord_arr: Array
 var rect_arr: Array
 var ideal_rotation_degrees: int
@@ -34,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 		if is_dragging:
 			z_index += 1
 			global_position = get_global_mouse_position()
-			global_position = global_position.snapped(TILE_SIZE)# - TILE_SIZE/2.0
+			global_position = global_position.snapped(TILE_SIZE_VECTOR)
 			if Input.is_action_just_pressed("Rotate"):
 				ideal_rotation_degrees = int(ideal_rotation_degrees) % 360
 				ideal_rotation_degrees += 90

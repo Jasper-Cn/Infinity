@@ -11,8 +11,9 @@ transparency = NodePath("Panel/VBoxContainer/Transparency")
 ui = NodePath("Panel/VBoxContainer/UI")
 
 [node name="Panel" type="Panel" parent="." unique_id=1760701443]
-offset_right = 433.0
-offset_bottom = 429.0
+offset_right = 240.0
+offset_bottom = 227.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=266278716]
 custom_minimum_size = Vector2(50, 0)
