@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bd5r6a4ohwan5" path="res://scenes/rebind_keys.tscn" id="3_6wm04"]
 [ext_resource type="PackedScene" uid="uid://r32a1ghblgqn" path="res://scenes/recolor_keys.tscn" id="4_f4mfi"]
 
-[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button")]
+[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider")]
 script = ExtResource("1_5p8wc")
 animations_button = NodePath("Panel/MarginContainer/VB/HB rotation animations/rotation animations Button")
+sfx_slider = NodePath("Panel/MarginContainer/VB/HBsfx/sfx Slider")
 popup_name = "Settings"
 
 [node name="Panel" type="Panel" parent="." unique_id=401543779]
@@ -18,9 +19,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = -240.0
+offset_top = -277.0
 offset_right = 280.0
-offset_bottom = 258.0
+offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -106,7 +107,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Animations"
+text = "Rotate Animations"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -123,7 +124,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Animations"
+text = "Flip Animations"
 horizontal_alignment = 1
 vertical_alignment = 1
 

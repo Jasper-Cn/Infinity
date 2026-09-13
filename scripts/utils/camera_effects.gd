@@ -28,6 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				zoom -= Vector2(0.05, 0.05)
 	if event.as_text() == "Space":
 		position = Vector2(0, -45)
+		zoom = Vector2(2.2, 2.2)
 		#print(zoom)
 
 

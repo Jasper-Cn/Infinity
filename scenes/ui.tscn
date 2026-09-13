@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d13baxhqbwdm6"]
 
 [ext_resource type="Script" uid="uid://dorugav5a4nj5" path="res://scripts/ui/ui.gd" id="1_nt7q6"]
+[ext_resource type="Theme" uid="uid://b2ig6ep5voqsk" path="res://resources/default.tres" id="2_x4jx1"]
 
 [sub_resource type="Theme" id="Theme_nt7q6"]
 
@@ -13,10 +14,9 @@ transparency = NodePath("Panel/VBoxContainer/Transparency")
 ui = NodePath("Panel/VBoxContainer/UI")
 
 [node name="Panel" type="Panel" parent="." unique_id=1760701443]
-offset_right = 429.0
-offset_bottom = 339.0
+offset_right = 440.0
+offset_bottom = 333.0
 mouse_filter = 2
-theme = SubResource("Theme_nt7q6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=266278716]
 custom_minimum_size = Vector2(50, 0)
@@ -29,6 +29,7 @@ theme_override_constants/separation = 19
 
 [node name="Settings" type="Label" parent="Panel/VBoxContainer" unique_id=151139914]
 layout_mode = 2
+theme = ExtResource("2_x4jx1")
 text = "Q = open settings"
 
 [node name="Rotate" type="Label" parent="Panel/VBoxContainer" unique_id=713321020]

@@ -1,6 +1,13 @@
 extends PopupUI
 
 @export var animations_button: Button
+@export var sfx_slider: HSlider
+
+func _ready() -> void:
+	super()
+	sfx_slider.value = 0.2
+	_slider_value_changed(0.2, "SFX")
+
 
 func _slider_value_changed(value: float, type: String) -> void:
 	if !AudioServer.get_bus_index(type):
