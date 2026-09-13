@@ -1,0 +1,269 @@
+[gd_scene format=3 uid="uid://r32a1ghblgqn"]
+
+[ext_resource type="Script" uid="uid://cg0xbw1tq2nv1" path="res://scripts/recolor_keys.gd" id="1_b2eth"]
+[ext_resource type="LabelSettings" uid="uid://nnk7ud04mjqa" path="res://resources/smallLabelTitle.tres" id="2_qi4rw"]
+
+[node name="recolor keys" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("panel", "node_2d")]
+script = ExtResource("1_b2eth")
+panel = NodePath("Panel")
+node_2d = NodePath("Panel/MarginContainer/VB/Node2D")
+popup_name = "Recolor"
+
+[node name="Panel" type="Panel" parent="." unique_id=401543779]
+self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.0
+offset_top = -512.0
+offset_right = 360.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1081512941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -10.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VB" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1355695212]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VB" unique_id=1103165589]
+layout_mode = 2
+text = "RECOLOR KEYS"
+label_settings = ExtResource("2_qi4rw")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VB" unique_id=1173782270]
+custom_minimum_size = Vector2(0, 62.885)
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="Panel/MarginContainer/VB" unique_id=1171393807]
+
+[node name="HBblock0" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=1012784587]
+offset_top = 166.0
+offset_right = 676.0
+offset_bottom = 231.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock0" unique_id=917077187]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 0th block"
+text = "Block 0"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock0" unique_id=1700480400]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock1" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=120516085]
+offset_top = 239.0
+offset_right = 676.0
+offset_bottom = 304.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock1" unique_id=1388886515]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 1st block"
+text = "Block 1"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock1" unique_id=872318344]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock2" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=1763260020]
+offset_top = 312.0
+offset_right = 676.0
+offset_bottom = 377.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock2" unique_id=357224893]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 2nd block"
+text = "Block 2"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock2" unique_id=2113047176]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock3" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=814465112]
+offset_top = 385.0
+offset_right = 676.0
+offset_bottom = 450.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock3" unique_id=271798218]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 3rd block"
+text = "Block 3"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock3" unique_id=909819819]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock4" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=1827201071]
+offset_top = 458.0
+offset_right = 676.0
+offset_bottom = 523.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock4" unique_id=1409457633]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 4th block"
+text = "Block 4"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock4" unique_id=1285838173]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock5" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=2005953162]
+offset_top = 531.0
+offset_right = 676.0
+offset_bottom = 596.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock5" unique_id=533033846]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 5th block"
+text = "Block 5"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock5" unique_id=2110546984]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock6" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=285868610]
+offset_top = 604.0
+offset_right = 676.0
+offset_bottom = 669.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock6" unique_id=1315648487]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 6th block"
+text = "Block 6"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock6" unique_id=1065243561]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock7" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=524241268]
+offset_top = 677.0
+offset_right = 676.0
+offset_bottom = 742.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock7" unique_id=1617859360]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 7th block"
+text = "Block 7"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock7" unique_id=1395299667]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock8" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=1068684581]
+offset_top = 750.0
+offset_right = 676.0
+offset_bottom = 815.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock8" unique_id=2070376710]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 8th block"
+text = "Block 8"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock8" unique_id=1615108501]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBblock9" type="HBoxContainer" parent="Panel/MarginContainer/VB/Node2D" unique_id=1411811768]
+offset_top = 823.0
+offset_right = 676.0
+offset_bottom = 888.0
+alignment = 1
+
+[node name="block" type="RichTextLabel" parent="Panel/MarginContainer/VB/Node2D/HBblock9" unique_id=1348082680]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Recolor the 9th block"
+text = "Block 9"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/MarginContainer/VB/Node2D/HBblock9" unique_id=454372738]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VB" unique_id=1614959797]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Back"
+
+[node name="Spacer2" type="Control" parent="Panel/MarginContainer/VB" unique_id=1502843402]
+custom_minimum_size = Vector2(0, 20.76)
+layout_mode = 2
+
+[node name="scroll" type="Label" parent="." unique_id=2111063629]
+visible = false
+offset_left = 983.0
+offset_top = 687.0
+offset_right = 1278.0
+offset_bottom = 751.0
+rotation = 1.5707964
+text = "Scroll up and down"
+
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock0/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [0]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock1/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [1]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock2/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [2]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock3/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [3]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock4/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [4]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock5/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [5]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock6/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [6]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock7/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [7]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock8/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [8]]
+[connection signal="color_changed" from="Panel/MarginContainer/VB/Node2D/HBblock9/ColorPickerButton" to="." method="_on_color_picker_button_color_changed" binds= [9]]
+[connection signal="pressed" from="Panel/MarginContainer/VB/BackButton" to="." method="_on_back_button_pressed"]

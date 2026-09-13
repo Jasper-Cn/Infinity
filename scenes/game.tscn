@@ -5,21 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bp7o7pqm85d0f" path="res://art/Infinity Tile Map.png" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cnd4o18ilxp8f" path="res://scenes/subject.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://1oudns23ey8i" path="res://scenes/settings.tscn" id="5_iywne"]
-[ext_resource type="Script" uid="uid://djta5nwq50tk2" path="res://scripts/board.gd" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://di50jkyng0jtc" path="res://scripts/hb.gd" id="7_0tnpc"]
-[ext_resource type="FontFile" uid="uid://bcg4lqe8nq0h5" path="res://resources/cour.ttf" id="7_gee14"]
-[ext_resource type="StyleBox" uid="uid://dk10p4i87wvd5" path="res://resources/Label_Normal.tres" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://basqeimujbb4c" path="res://scenes/board.tscn" id="6_p57ef"]
 
 [sub_resource type="Environment" id="Environment_oooul"]
 background_mode = 3
 
 [sub_resource type="TileSet" id="TileSet_fwlhj"]
-
-[sub_resource type="Theme" id="Theme_nt7q6"]
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 43
-Label/fonts/font = ExtResource("7_gee14")
-Label/styles/normal = ExtResource("8_0tnpc")
 
 [node name="game" type="Node2D" unique_id=404250698]
 
@@ -31,90 +22,95 @@ script = ExtResource("2_yqjtg")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=359039304]
 environment = SubResource("Environment_oooul")
 
+[node name="Board" parent="." unique_id=1341413469 instance=ExtResource("6_p57ef")]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1596113660]
+visible = false
 position = Vector2(0, -45)
 scale = Vector2(0.937, 0.937)
 texture = ExtResource("3_lbhrr")
 
-[node name="Subject0" parent="." unique_id=1716625559 instance=ExtResource("3_lnu2h")]
+[node name="subjects" type="Node2D" parent="." unique_id=1182836114]
+
+[node name="Subject0" parent="subjects" unique_id=1716625559 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, 450)
-color = Color(0.9019608, 0.72156864, 0.6862745, 1)
+color = Color(1, 0.39215687, 0.39215687, 1)
 coord_1 = Vector2(0, 1)
 coord_2 = Vector2(0, 2)
 coord_3 = Vector2(0, 3)
 coord_4 = Vector2(0, 0)
 
-[node name="Subject1" parent="." unique_id=1732215189 instance=ExtResource("3_lnu2h")]
+[node name="Subject1" parent="subjects" unique_id=1732215189 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, -720)
-color = Color(0.95686275, 0.8, 0.8, 1)
+color = Color(0.98039216, 0.5882353, 0.39215687, 1)
 self_number = 1
 coord_1 = Vector2(-1, 0)
 coord_2 = Vector2(0, 1)
 coord_3 = Vector2(0, 2)
 coord_4 = Vector2(1, 0)
 
-[node name="Subject2" parent="." unique_id=176163047 instance=ExtResource("3_lnu2h")]
+[node name="Subject2" parent="subjects" unique_id=176163047 instance=ExtResource("3_lnu2h")]
 position = Vector2(-365, -720)
-color = Color(0.9882353, 0.8980392, 0.8039216, 1)
+color = Color(1, 0.8627451, 0.3137255, 1)
 self_number = 2
 coord_1 = Vector2(-3, 0)
 coord_2 = Vector2(-3, 1)
 coord_3 = Vector2(-2, 0)
 coord_4 = Vector2(-1, 0)
 
-[node name="Subject3" parent="." unique_id=1947329708 instance=ExtResource("3_lnu2h")]
+[node name="Subject3" parent="subjects" unique_id=1947329708 instance=ExtResource("3_lnu2h")]
 position = Vector2(360, -720)
-color = Color(1, 0.9490196, 0.8, 1)
+color = Color(0.39215687, 1, 0.3137255, 1)
 self_number = 3
 coord_3 = Vector2(2, 1)
 coord_4 = Vector2(3, 1)
 
-[node name="Subject4" parent="." unique_id=1848087674 instance=ExtResource("3_lnu2h")]
+[node name="Subject4" parent="subjects" unique_id=1848087674 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, -450)
-color = Color(0.8509804, 0.91764706, 0.827451, 1)
+color = Color(0.19607843, 0.39215687, 0.19607843, 1)
 self_number = 4
 coord_1 = Vector2(-2, 0)
 coord_2 = Vector2(-2, 1)
 coord_3 = Vector2(-1, 0)
 coord_4 = Vector2(0, 0)
 
-[node name="Subject5" parent="." unique_id=1881981243 instance=ExtResource("3_lnu2h")]
+[node name="Subject5" parent="subjects" unique_id=1881981243 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, -450)
-color = Color(0.8156863, 0.8784314, 0.8901961, 1)
+color = Color(0.19607843, 0.78431374, 1, 1)
 self_number = 5
 coord_2 = Vector2(1, 1)
 coord_3 = Vector2(2, 1)
 coord_4 = Vector2(0, 0)
 
-[node name="Subject6" parent="." unique_id=406337915 instance=ExtResource("3_lnu2h")]
+[node name="Subject6" parent="subjects" unique_id=406337915 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, -180)
-color = Color(0.7882353, 0.85490197, 0.972549, 1)
+color = Color(0.19607843, 0.39215687, 1, 1)
 self_number = 6
 coord_1 = Vector2(-2, 0)
 coord_2 = Vector2(-2, 1)
 coord_3 = Vector2(-2, 2)
 coord_4 = Vector2(-1, 0)
 
-[node name="Subject7" parent="." unique_id=1581580784 instance=ExtResource("3_lnu2h")]
+[node name="Subject7" parent="subjects" unique_id=1581580784 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, -180)
-color = Color(0.8117647, 0.8862745, 0.9529412, 1)
+color = Color(0.5882353, 0.39215687, 1, 1)
 self_number = 7
 coord_2 = Vector2(1, 1)
 coord_3 = Vector2(1, 2)
 coord_4 = Vector2(2, 2)
 
-[node name="Subject8" parent="." unique_id=816368259 instance=ExtResource("3_lnu2h")]
+[node name="Subject8" parent="subjects" unique_id=816368259 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, 180)
-color = Color(0.8509804, 0.8235294, 0.9137255, 1)
+color = Color(0.78431374, 0.19607843, 0.78431374, 1)
 self_number = 8
 coord_1 = Vector2(-2, 0)
 coord_2 = Vector2(-2, 1)
 coord_3 = Vector2(-1, 0)
 coord_4 = Vector2(-1, 1)
 
-[node name="Subject9" parent="." unique_id=1888462937 instance=ExtResource("3_lnu2h")]
+[node name="Subject9" parent="subjects" unique_id=1888462937 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, 180)
-color = Color(0.91764706, 0.81960785, 0.8627451, 1)
+color = Color(0.98039216, 0.39215687, 0.5882353, 1)
 self_number = 9
 coord_1 = Vector2(0, 1)
 coord_2 = Vector2(1, 0)
@@ -129,25 +125,7 @@ tile_set = SubResource("TileSet_fwlhj")
 
 [node name="Settings" parent="." unique_id=271222457 instance=ExtResource("5_iywne")]
 
-[node name="Board" type="Node2D" parent="." unique_id=291000047 node_paths=PackedStringArray("label")]
-position = Vector2(-982, 0)
-script = ExtResource("6_p57ef")
-label = NodePath("VB/HB/Label")
+[node name="recolor keys" parent="Settings" index="2" unique_id=336347478 node_paths=PackedStringArray("subject")]
+subject = NodePath("../../subjects")
 
-[node name="VB" type="VBoxContainer" parent="Board" unique_id=828013879]
-offset_left = -315.0
-offset_top = -405.0
-offset_right = 315.0
-offset_bottom = 315.0
-theme_override_constants/separation = 0
-
-[node name="HB" type="HBoxContainer" parent="Board/VB" unique_id=1426627980]
-layout_mode = 2
-theme_override_constants/separation = 0
-script = ExtResource("7_0tnpc")
-
-[node name="Label" type="Label" parent="Board/VB/HB" unique_id=396535791]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-theme = SubResource("Theme_nt7q6")
-text = "JUN"
+[editable path="Settings"]

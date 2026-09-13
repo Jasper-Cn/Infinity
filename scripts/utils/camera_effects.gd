@@ -12,19 +12,22 @@ func _process(delta: float) -> void:
 
 
 func _move_camera(delta: float) -> void:
-	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
-	if input_dir != Vector2.ZERO:
-		position.x += input_dir.x * CAMERA_MOVE_SPEED * delta
-		position.y += input_dir.y * CAMERA_MOVE_SPEED * delta
+	#if Global.current_popup_page == "":
+		var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
+		if input_dir != Vector2.ZERO:
+			position.x += input_dir.x * CAMERA_MOVE_SPEED * delta
+			position.y += input_dir.y * CAMERA_MOVE_SPEED * delta
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if zoom < Vector2(3.9, 3.9):
-		if event.as_text() == "Mouse Wheel Up":
-			zoom += Vector2(0.1, 0.1)
-	if zoom > Vector2(0.1, 0.1):
-		if event.as_text() == "Mouse Wheel Down":
-			zoom -= Vector2(0.1, 0.1)
+	if Global.current_popup_page == "":
+		if zoom < Vector2(3.9, 3.9):
+			if event.as_text() == "Mouse Wheel Up":
+				zoom += Vector2(0.05, 0.05)
+		if zoom > Vector2(0.11, 0.11):
+			if event.as_text() == "Mouse Wheel Down":
+				zoom -= Vector2(0.05, 0.05)
+		#print(zoom)
 
 
 ## First parameter is snake_strength and determines how many pixels offset

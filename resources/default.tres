@@ -1,3 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://b2ig6ep5voqsk"]
 
 [resource]
+Button/font_sizes/font_size = 32
+Label/font_sizes/font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 32

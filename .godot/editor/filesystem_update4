@@ -10,3 +10,11 @@ res://scripts/board.gd
 res://scripts/hb.gd
 res://scenes/ui.tscn
 res://resources/new_theme.tres
+res://scenes/board.tscn
+res://scripts/utils/camera_effects.gd
+res://scenes/settings.tscn
+res://scenes/subject.tscn
+res://autoloads/event_bus.gd
+res://scripts/ui/settings.gd
+res://scenes/recolor_keys.tscn
+res://scripts/recolor_keys.gd

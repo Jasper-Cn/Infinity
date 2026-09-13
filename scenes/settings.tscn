@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgaru8iapicjo" path="res://scripts/ui/settings.gd" id="1_5p8wc"]
 [ext_resource type="LabelSettings" uid="uid://nnk7ud04mjqa" path="res://resources/smallLabelTitle.tres" id="2_r6d6q"]
 [ext_resource type="PackedScene" uid="uid://bd5r6a4ohwan5" path="res://scenes/rebind_keys.tscn" id="3_6wm04"]
+[ext_resource type="PackedScene" uid="uid://r32a1ghblgqn" path="res://scenes/recolor_keys.tscn" id="4_f4mfi"]
 
 [node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button")]
 script = ExtResource("1_5p8wc")
@@ -67,6 +68,7 @@ size_flags_horizontal = 3
 text = "Music Volume"
 fit_content = true
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Music Slider" type="HSlider" parent="Panel/MarginContainer/VB/HBmusic" unique_id=69652736]
 custom_minimum_size = Vector2(0, 50)
@@ -86,6 +88,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX Volume"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="sfx Slider" type="HSlider" parent="Panel/MarginContainer/VB/HBsfx" unique_id=353523564]
 custom_minimum_size = Vector2(0, 50)
@@ -105,6 +108,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Animations"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="animations Button" type="Button" parent="Panel/MarginContainer/VB/HBanimations" unique_id=2018727846]
 custom_minimum_size = Vector2(200, 0)
@@ -113,9 +117,17 @@ text = "on"
 
 [node name="Rebind Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=761795313]
 modulate = Color(0, 1, 1, 1)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Rebind Keys"
+
+[node name="Recolor Blocks" type="Button" parent="Panel/MarginContainer/VB" unique_id=347181202]
+modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Recolor Keys"
 
 [node name="BackButton" type="Button" parent="Panel/MarginContainer/VB" unique_id=1614959797]
 layout_mode = 2
@@ -125,8 +137,12 @@ text = "Back"
 [node name="rebind keys" parent="." unique_id=2019617526 instance=ExtResource("3_6wm04")]
 visible = false
 
+[node name="recolor keys" parent="." unique_id=336347478 instance=ExtResource("4_f4mfi")]
+visible = false
+
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBmusic/Music Slider" to="." method="_slider_value_changed" binds= ["Music"]]
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBsfx/sfx Slider" to="." method="_slider_value_changed" binds= ["SFX"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBanimations/animations Button" to="." method="_on_animations_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VB/Rebind Button" to="." method="_on_button_pressed" binds= ["Rebind"]]
+[connection signal="pressed" from="Panel/MarginContainer/VB/Recolor Blocks" to="." method="_on_button_pressed" binds= ["Recolor"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/BackButton" to="." method="_on_back_button_pressed"]

@@ -11,4 +11,4 @@ var debug_mode : bool = true
 var mouse_dragging_item: Node = null
 var current_popup_page: String
 var animations: bool = true
-const TILE_SIZE = 90
+const TILE_SIZE = Vector2(90, 90)

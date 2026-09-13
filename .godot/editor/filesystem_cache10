@@ -1,14 +1,16 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1789238823
+::res://::1789258284
 export_presets.cfg::TextFile::-1::1788764890::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::7100857863694296689::1788230784::1788764521::1::::<><><>0<>0<>0e063bea8076d02a754688e4c077c084<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://art/::1788764521
+::res://art/::1789261247
+bbd.png::CompressedTexture2D::4720098494343519862::1789261172::1789261251::1::::<><><>0<>0<>edfd9ddad92f16d6befbc679c571ad2f<>res://.godot/imported/bbd.png-0fe17f4d6ccda1d9e3d5c0191732b611.ctex::
 ddb.png::CompressedTexture2D::135215686383414614::1788230784::1788764521::1::::<><><>0<>0<>e1daeb712c0ec2e52e6dd704b51ea53d<>res://.godot/imported/ddb.png-7014ac6041523b5c86dc1f2ecae29308.ctex::
 Infinity Tile Map.png::CompressedTexture2D::3506221422854817251::1788678917::1788764520::1::::<><><>0<>0<>cd4acfc1c3a5b167ec48f98ec9b5c0e3<>res://.godot/imported/Infinity Tile Map.png-649775c7c34842d414d66a431a1e2b56.ctex::
+WRB.webp::CompressedTexture2D::2786157794059748016::1789259179::1789259190::1::::<><><>0<>0<>3504525990198490aa06d8764aebf048<>res://.godot/imported/WRB.webp-c0e0b3c486614e2f09332bd467635c79.ctex::
 ::res://audio/::1788764521
 BTN_DOWN_CLICK.ogg::AudioStreamOggVorbis::7927680243060290241::1788230784::1788764520::1::::<><><>0<>0<>4d04ddb1f8384ed95e2a5a2dd0a05bbf<>res://.godot/imported/BTN_DOWN_CLICK.ogg-865357677022e785a80c5c11df75c37f.oggvorbisstr::
 Typewriter Bloop.wav::AudioStreamWAV::991735265868187495::1788230784::1788764521::1::::<><><>0<>0<>8c2612588f382191129512530f2b589d<>res://.godot/imported/Typewriter Bloop.wav-72afd0c417425683b493046b844b8976.sample::
-::res://autoloads/::1788738352
+::res://autoloads/::1789256101
 AudioPlayer.tscn::PackedScene::2200378221618828390::1788230784::0::1::::<><><>0<>0<><>::uid://11je2fqgcpqg::::res://autoloads/audio_player.gd<>uid://btiigmn8bubro::::res://resources/SFX.gd<>uid://dk7h0acm4eppx::::res://audio/BTN_DOWN_CLICK.ogg
 audio_player.gd::GDScript::1879138778894471186::1788230784::0::1::::<>Node2D<><>0<>0<><>::
 debug.gd::GDScript::5773062014209736702::1788230784::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -16,39 +18,44 @@ debug.tscn::PackedScene::4643768322003293124::1788675726::0::1::::<><><>0<>0<><>
 event_bus.gd::GDScript::2329360468022648259::1788738352::0::1::::<>Node<><>0<>0<><>::
 fade.gd::GDScript::2366580389335035345::1788326483::0::1::::<>CanvasLayer<><>0<>0<><>::
 fade.tscn::PackedScene::6663144981310631706::1788230784::0::1::::<><><>0<>0<><>::uid://8ynh6vxhc8uf::::res://autoloads/fade.gd
-global.gd::GDScript::7234557755249852951::1788735940::0::1::::<>Node<><>0<>0<><>::
+global.gd::GDScript::7234557755249852951::1789256101::0::1::::<>Node<><>0<>0<><>::
 scene_manager.gd::GDScript::1157778646813077482::1788403629::0::1::::<>CanvasLayer<><>0<>0<><>::
 scene_manager.tscn::PackedScene::8459781675732849431::1788403639::0::1::::<><><>0<>0<><>::uid://qq3peustvwwo::::res://autoloads/scene_manager.gd
-::res://resources/::1789243145
+::res://resources/::1789260676
 cour.ttf::FontFile::2540965922086925152::1789242587::1789242609::1::::<><><>0<>0<>e18ab69e33d41af11ef3e9ec29a18d1e<>res://.godot/imported/cour.ttf-17284d268af98f5e3811609a21e1126a.fontdata::
-default.tres::Theme::8132259751775820092::1789241778::0::1::::<><><>0<>0<><>::
 default_bus_layout.tres::AudioBusLayout::7949630669421263191::1788230784::0::1::::<><><>0<>0<><>::
 fade_sine.tres::VisualShader::5550473570955493429::1789240420::0::1::::<><><>0<>0<><>::
-Label_Normal.tres::StyleBoxFlat::7916370557871526568::1789242943::0::1::::<><><>0<>0<><>::
+Label_Normal.tres::StyleBoxFlat::7916370557871526568::1789258932::0::1::::<><><>0<>0<><>::
+new_theme.tres::Theme::4498485264225781686::1789253543::0::1::::<><><>0<>0<><>::uid://bcg4lqe8nq0h5::::res://resources/cour.ttf<>uid://dk10p4i87wvd5::::res://resources/Label_Normal.tres
+default.tres::Theme::4298454380177266158::1789244799::0::1::::<><><>0<>0<><>::
+box_theme.tres::Theme::7628555256189525812::1789257002::0::1::::<><><>0<>0<><>::
+Label_img.tres::StyleBoxFlat::1981528004800284980::1789260676::0::1::::<><><>0<>0<><>::
 SFX.gd::GDScript::3737020837417907940::1788230784::0::1::::SFX<>Resource<><>0<>0<><>::
 sine_fade.gdshader::Shader::7111827777457356572::1788230784::0::1::::<><><>0<>0<><>::
 smallLabelTitle.tres::LabelSettings::939957249706357460::1788230784::0::1::::<><><>0<>0<><>::
 TitleLabel.tres::LabelSettings::7148641349671505169::1788230784::0::1::::<><><>0<>0<><>::
 ::res://resources/SFX resources/::1788230784
 BUTTON_DOWN.tres::Resource/SFX::1273628033913311364::1788230784::0::1::::<><><>0<>0<><>::uid://btiigmn8bubro::::res://resources/SFX.gd
-::res://scenes/::1789243284
+::res://scenes/::1789260681
 credits.tscn::PackedScene::1571098210291521473::1788497492::0::1::::<><><>0<>0<><>::uid://dvllwtsgjuwth::::res://scripts/credits.gd<>uid://nnk7ud04mjqa::::res://resources/smallLabelTitle.tres
 cutscene_tutorial.tscn::PackedScene::2476076882528458219::1788230784::0::1::::<><><>0<>0<><>::uid://dl6fsltd4e43y::::res://scripts/ui/tutorial.gd<>uid://clcxqva8myghp::::res://resources/fade_sine.tres
-game.tscn::PackedScene::5530376523265326679::1789243610::0::1::::<><><>0<>0<><>::uid://d13baxhqbwdm6::::res://scenes/ui.tscn<>uid://dkvrwufrtbtty::::res://scripts/utils/camera_effects.gd<>uid://bp7o7pqm85d0f::::res://art/Infinity Tile Map.png<>uid://cnd4o18ilxp8f::::res://scenes/subject.tscn<>uid://1oudns23ey8i::::res://scenes/settings.tscn<>uid://djta5nwq50tk2::::res://scenes/board.gd<>uid://bcg4lqe8nq0h5::::res://resources/cour.ttf<>uid://dk10p4i87wvd5::::res://resources/Label_Normal.tres
+game.tscn::PackedScene::5530376523265326679::1789260039::0::1::::<><><>0<>0<><>::uid://d13baxhqbwdm6::::res://scenes/ui.tscn<>uid://dkvrwufrtbtty::::res://scripts/utils/camera_effects.gd<>uid://bp7o7pqm85d0f::::res://art/Infinity Tile Map.png<>uid://cnd4o18ilxp8f::::res://scenes/subject.tscn<>uid://1oudns23ey8i::::res://scenes/settings.tscn<>uid://basqeimujbb4c::::res://scenes/board.tscn
 Popup.tscn::PackedScene::2966656107960610684::1788493794::0::1::::<><><>0<>0<><>::uid://30wxtrl45ufc::::res://scripts/popup.gd
 rebind_keys.tscn::PackedScene::2660006141162716664::1788735940::0::1::::<><><>0<>0<><>::uid://nnk7ud04mjqa::::res://resources/smallLabelTitle.tres<>uid://dw1iu3ptm1mdn::::res://scripts/rebind_keys.gd
+board.tscn::PackedScene::2424558537971291128::1789259438::0::1::::<><><>0<>0<><>::uid://djta5nwq50tk2::::res://scripts/board.gd<>uid://bfxvu2inuqjx5::::res://art/WRB.webp<>uid://dgxlgqilrgksi::::res://resources/box_theme.tres<>uid://b6q8n5db2n4a::::res://art/ddb.png
 settings.tscn::PackedScene::1855031632257114122::1788738352::0::1::::<><><>0<>0<><>::uid://bgaru8iapicjo::::res://scripts/ui/settings.gd<>uid://nnk7ud04mjqa::::res://resources/smallLabelTitle.tres<>uid://bd5r6a4ohwan5::::res://scenes/rebind_keys.tscn
 splash_screen.tscn::PackedScene::7306247140541076622::1788230784::0::1::::<><><>0<>0<><>::uid://cx6v3rwm11ue6::::res://scripts/ui/splash_screen.gd<>uid://b6q8n5db2n4a::::res://art/ddb.png
 start.tscn::PackedScene::5446535630088707120::1788326333::0::1::::<><><>0<>0<><>::uid://bpq6m57xt5yl2::::res://scripts/ui/start_screen.gd<>uid://1oudns23ey8i::::res://scenes/settings.tscn<>uid://c834cw4jmnw22::::res://resources/TitleLabel.tres<>uid://wnb01h1hf6uf::::res://scenes/credits.tscn
 subject.tscn::PackedScene::5693276678812453451::1788766395::0::1::::<><><>0<>0<><>::uid://bdf6rnbkhmf0e::::res://scripts/subject.gd
 typewriter_label.tscn::PackedScene::4381319726191357972::1788230784::0::1::::<><><>0<>0<><>::uid://b8xylxwhxm55s::::res://scripts/typewriter_label.gd<>uid://oeny8t4phxwx::::res://audio/Typewriter Bloop.wav
-ui.tscn::PackedScene::9042036499354441283::1788735246::0::1::::<><><>0<>0<><>::uid://dorugav5a4nj5::::res://scripts/ui/ui.gd
-::res://scripts/::1788737626
+ui.tscn::PackedScene::9042036499354441283::1789260681::0::1::::<><><>0<>0<><>::uid://dorugav5a4nj5::::res://scripts/ui/ui.gd
+::res://scripts/::1789260805
+board.gd::GDScript::7830239112523188067::1789260805::0::1::::<>Node2D<><>0<>0<><>::
 credits.gd::GDScript::8656644123194563541::1788496178::0::1::::<>PopupUI<><>0<>0<><>::
 popup.gd::GDScript::2018274937562149596::1788499394::0::1::::PopupUI<>CanvasLayer<><>0<>0<><>::
 rebind_keys.gd::GDScript::8757613379248014675::1788735424::0::1::::<>PopupUI<><>0<>0<><>::
-board.gd::GDScript::7830239112523188067::1789243610::0::1::::<>Node2D<><>0<>0<><>::
-subject.gd::GDScript::2609222373462183866::1788737626::0::1::::Subject<>Node2D<><>0<>0<><>::
+hb.gd::GDScript::7784238692678140788::1789254876::0::1::::<>HBoxContainer<><>0<>0<><>::
+subject.gd::GDScript::2609222373462183866::1789256139::0::1::::Subject<>Node2D<><>0<>0<><>::
 typewriter_label.gd::GDScript::4751611306022935094::1788230784::0::1::::TypewriterLabel<>RichTextLabel<><>0<>0<><>::
 ::res://scripts/ui/::1788737879
 settings.gd::GDScript::2808623395925775352::1788735689::0::1::::<>PopupUI<><>0<>0<><>::
