@@ -19,9 +19,13 @@ func _unhandled_input(_event: InputEvent) -> void:
 		EventBus.update_UI.emit("visibility")
 
 
-func _on_animations_button_pressed() -> void:
-	Global.animations = not Global.animations
-	if Global.animations:
-		animations_button.text = "on"
-	else:
-		animations_button.text = "off"
+func _on_animations_button_pressed(source: Button, i: int) -> void:
+	Global.animations_type[i] += 1
+	Global.animations_type[i] %= 3
+	match Global.animations_type[i]:
+		0:
+			source.text = "full"
+		1:
+			source.text = "minimal"
+		2:
+			source.text = "off"

@@ -7,7 +7,7 @@
 
 [node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button")]
 script = ExtResource("1_5p8wc")
-animations_button = NodePath("Panel/MarginContainer/VB/HBanimations/animations Button")
+animations_button = NodePath("Panel/MarginContainer/VB/HB rotation animations/rotation animations Button")
 popup_name = "Settings"
 
 [node name="Panel" type="Panel" parent="." unique_id=401543779]
@@ -98,11 +98,11 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HBanimations" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=468287032]
+[node name="HB rotation animations" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=468287032]
 layout_mode = 2
 alignment = 1
 
-[node name="animations" type="RichTextLabel" parent="Panel/MarginContainer/VB/HBanimations" unique_id=1328546830]
+[node name="rotation animations" type="RichTextLabel" parent="Panel/MarginContainer/VB/HB rotation animations" unique_id=1328546830]
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -110,10 +110,27 @@ text = "Animations"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="animations Button" type="Button" parent="Panel/MarginContainer/VB/HBanimations" unique_id=2018727846]
+[node name="rotation animations Button" type="Button" parent="Panel/MarginContainer/VB/HB rotation animations" unique_id=2018727846]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "on"
+text = "full"
+
+[node name="HB flip animations" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=888358726]
+layout_mode = 2
+alignment = 1
+
+[node name="flip animations" type="RichTextLabel" parent="Panel/MarginContainer/VB/HB flip animations" unique_id=423037368]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Animations"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="flip animations Button" type="Button" parent="Panel/MarginContainer/VB/HB flip animations" unique_id=1847057391]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "full"
 
 [node name="Rebind Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=761795313]
 modulate = Color(0, 1, 1, 1)
@@ -142,7 +159,8 @@ visible = false
 
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBmusic/Music Slider" to="." method="_slider_value_changed" binds= ["Music"]]
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBsfx/sfx Slider" to="." method="_slider_value_changed" binds= ["SFX"]]
-[connection signal="pressed" from="Panel/MarginContainer/VB/HBanimations/animations Button" to="." method="_on_animations_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VB/HB rotation animations/rotation animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [0]]
+[connection signal="pressed" from="Panel/MarginContainer/VB/HB flip animations/flip animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [1]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/Rebind Button" to="." method="_on_button_pressed" binds= ["Rebind"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/Recolor Blocks" to="." method="_on_button_pressed" binds= ["Recolor"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/BackButton" to="." method="_on_back_button_pressed"]

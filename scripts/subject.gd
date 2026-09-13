@@ -39,22 +39,42 @@ func _physics_process(_delta: float) -> void:
 				global_position = get_global_mouse_position()
 				global_position = global_position.snapped(Global.TILE_SIZE)
 				if Input.is_action_just_pressed("Rotate"):
-					ideal_rotation_degrees = int(ideal_rotation_degrees) % 360
+					#ideal_rotation_degrees = int(ideal_rotation_degrees) % 360
+					#rotation_degrees = ideal_rotation_degrees
 					ideal_rotation_degrees += 90
-					if Global.animations:
-						if ap_rotation.is_playing():
-							ap_rotation.stop()
-						ap_rotation.play("rotate to " + str(int(ideal_rotation_degrees)))
+					if Global.animations_type[0] < 2:
+						#if ap_rotation.is_playing():
+							#ap_rotation.stop()
+						#ap_rotation.play("rotate to " + str(int(ideal_rotation_degrees)))
+						var tweener : Tween = get_tree().create_tween()
+						tweener.tween_property(self, "rotation_degrees", ideal_rotation_degrees, 0.3)
+						if Global.animations_type[0] < 1:
+							var rect_tween0 : Tween = get_tree().create_tween()
+							rect_tween0.tween_property(color_rect_0, "rotation_degrees", -ideal_scale_x * ideal_rotation_degrees, 0.3)
+							for i in rect_arr.size():
+								var rect_tween : Tween = get_tree().create_tween()
+								rect_tween.tween_property(rect_arr[i], "rotation_degrees", -ideal_scale_x * ideal_rotation_degrees, 0.3)
 					else:
 						rotation_degrees = ideal_rotation_degrees
 				if Input.is_action_just_pressed("Flip"):
 					ideal_scale_x *= -1
-					if Global.animations:
-						if ap_flip.is_playing():
-							ap_flip.stop()
-						ap_flip.play("Flip to " + str(int(ideal_scale_x)))
+					if Global.animations_type[1] == 0:
+						#if ap_flip.is_playing():
+							#ap_flip.stop()
+						#ap_flip.play("Flip to " + str(int(ideal_scale_x)))
+						var tweener : Tween = get_tree().create_tween()
+						tweener.tween_property(self, "scale", Vector2(float(0), 0), 0.15)
+						tweener.tween_property(self, "scale", Vector2(float(ideal_scale_x), 1), 0.15)
+					elif Global.animations_type[1] == 1:
+						var tweener : Tween = get_tree().create_tween()
+						tweener.tween_property(self, "scale", Vector2(float(ideal_scale_x), 1), 0.3)
 					else:
 						scale.x = ideal_scale_x
+					var rect_tween0 : Tween = get_tree().create_tween()
+					await rect_tween0.tween_property(color_rect_0, "custom_minimum_size", Vector2(0, 0), 0.3).finished
+					color_rect_0.rotation_degrees = -ideal_scale_x * ideal_rotation_degrees
+					for i in rect_arr.size():
+						rect_arr[i].rotation_degrees = -ideal_scale_x * ideal_rotation_degrees
 			else:
 				z_index = 0
 			if Input.is_action_just_pressed("click") and is_touching_mouse:
