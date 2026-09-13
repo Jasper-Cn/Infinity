@@ -4,11 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://bfxvu2inuqjx5" path="res://art/WRB.webp" id="2_fv4ni"]
 [ext_resource type="Theme" uid="uid://dgxlgqilrgksi" path="res://resources/box_theme.tres" id="2_tx6nw"]
 [ext_resource type="Texture2D" uid="uid://b8iplkp80b61o" path="res://art/bbd.png" id="3_fv4ni"]
+[ext_resource type="Theme" uid="uid://b5ddnoxvofmew" path="res://resources/new_theme.tres" id="5_dxjtj"]
 
 [node name="Board" type="Node2D" unique_id=1341413469]
 script = ExtResource("1_nglv8")
 wrb = ExtResource("2_fv4ni")
 bbd = ExtResource("3_fv4ni")
+
+[node name="Label" type="Label" parent="." unique_id=261248741]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 634.0
+offset_bottom = 724.0
+theme = ExtResource("5_dxjtj")
 
 [node name="VB" type="VBoxContainer" parent="." unique_id=1592825438]
 theme = ExtResource("2_tx6nw")

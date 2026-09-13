@@ -50,7 +50,7 @@ coord_3 = Vector2(0, 2)
 coord_4 = Vector2(1, 0)
 
 [node name="Subject2" parent="subjects" unique_id=176163047 instance=ExtResource("3_lnu2h")]
-position = Vector2(-365, -720)
+position = Vector2(-360, -720)
 color = Color(1, 0.8627451, 0.3137255, 1)
 self_number = 2
 coord_1 = Vector2(-3, 0)

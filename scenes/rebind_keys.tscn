@@ -3,6 +3,9 @@
 [ext_resource type="LabelSettings" uid="uid://nnk7ud04mjqa" path="res://resources/smallLabelTitle.tres" id="1_7rw50"]
 [ext_resource type="Script" uid="uid://dw1iu3ptm1mdn" path="res://scripts/rebind_keys.gd" id="1_12sgy"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+bg_color = Color(0.6, 0.6, 0.6, 0.8627451)
+
 [node name="rebind keys" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("panel")]
 script = ExtResource("1_12sgy")
 panel = NodePath("Panel")
@@ -16,13 +19,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -357.0
-offset_top = -791.0
+offset_top = -800.0
 offset_right = 360.0
-offset_bottom = 788.0
+offset_bottom = 937.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f4mfi")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1081512941]
 layout_mode = 1
@@ -54,6 +59,23 @@ metadata/_edit_use_anchors_ = true
 [node name="Spacer" type="Control" parent="Panel/MarginContainer/VB" unique_id=1173782270]
 custom_minimum_size = Vector2(0, 62.885)
 layout_mode = 2
+
+[node name="HBclick" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=144509560]
+layout_mode = 2
+alignment = 1
+
+[node name="click" type="RichTextLabel" parent="Panel/MarginContainer/VB/HBclick" unique_id=1317278493]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Rebind the select a piece button"
+text = "Click"
+horizontal_alignment = 1
+
+[node name="click button" type="Button" parent="Panel/MarginContainer/VB/HBclick" unique_id=1773701693]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left Mouse Button"
 
 [node name="HBrotate" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=1792544215]
 layout_mode = 2
@@ -97,7 +119,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the rotate a piece button"
+tooltip_text = "Rebind the set pieces semi-transparent button"
 text = "Transparency"
 horizontal_alignment = 1
 
@@ -361,6 +383,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Q"
 
+[node name="HBcamreset" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=1806878941]
+layout_mode = 2
+alignment = 1
+
+[node name="camreset" type="RichTextLabel" parent="Panel/MarginContainer/VB/HBcamreset" unique_id=1554099385]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Rebind the set camera button"
+text = "Set Camera"
+horizontal_alignment = 1
+
+[node name="camreset button" type="Button" parent="Panel/MarginContainer/VB/HBcamreset" unique_id=1552678279]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Space"
+
 [node name="BackButton" type="Button" parent="Panel/MarginContainer/VB" unique_id=1614959797]
 layout_mode = 2
 size_flags_vertical = 10
@@ -371,7 +410,6 @@ custom_minimum_size = Vector2(0, 20.76)
 layout_mode = 2
 
 [node name="scroll" type="Label" parent="." unique_id=2111063629]
-visible = false
 offset_left = 983.0
 offset_top = 687.0
 offset_right = 1278.0
@@ -379,6 +417,7 @@ offset_bottom = 751.0
 rotation = 1.5707964
 text = "Scroll up and down"
 
+[connection signal="pressed" from="Panel/MarginContainer/VB/HBclick/click button" to="." method="_rebind_button_pressed" flags=18 binds= ["click"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBrotate/rotate button" to="." method="_rebind_button_pressed" flags=18 binds= ["Rotate"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBflip/flip button" to="." method="_rebind_button_pressed" flags=18 binds= ["Flip"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBtransparency/transparency button" to="." method="_rebind_button_pressed" flags=18 binds= ["Transparency"]]
@@ -397,4 +436,5 @@ text = "Scroll up and down"
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBblock8/block button" to="." method="_rebind_button_pressed" flags=18 binds= ["8"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBblock9/block button" to="." method="_rebind_button_pressed" flags=18 binds= ["9"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HBsettings/settings button" to="." method="_rebind_button_pressed" flags=18 binds= ["Settings"]]
+[connection signal="pressed" from="Panel/MarginContainer/VB/HBcamreset/camreset button" to="." method="_rebind_button_pressed" flags=18 binds= ["set camera"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/BackButton" to="." method="_on_back_button_pressed"]
