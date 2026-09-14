@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://r32a1ghblgqn"]
 
-[ext_resource type="Script" uid="uid://cg0xbw1tq2nv1" path="res://scripts/recolor_keys.gd" id="1_6rawf"]
+[ext_resource type="Script" uid="uid://cg0xbw1tq2nv1" path="res://scripts/recolor_blocks.gd" id="1_6rawf"]
 [ext_resource type="LabelSettings" uid="uid://nnk7ud04mjqa" path="res://resources/smallLabelTitle.tres" id="2_ujvdf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12sgy"]

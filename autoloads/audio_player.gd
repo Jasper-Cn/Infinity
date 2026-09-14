@@ -1,32 +1,27 @@
 extends Node2D
 
-var current_player :AudioStreamPlayer = null
 @export var sound_effects: Array[SFX] = []
 
+var current_player :AudioStreamPlayer = null
 var sound_effect_dict: Dictionary = {}
 
-# MUSIC: only one song can play at a time, it will override, Music bus
-# SFX: can play simultaneously, SFX bus
 
-# THIS BLOCK HANDLES GLOBAL BUTTON AUDIO
-# lambda function activates whenever a node is added, if it is a button, then the pressed signal is connected to the _play_click_sound function
 func _enter_tree() -> void:
 	get_tree().node_added.connect(func (node: Node) -> void:
 		if node is BaseButton:
 			node.pressed.connect(_play_click_sound))
 
+
 func _play_click_sound() -> void:
 	play_sfx(SFX.SOUND_EFFECT_TYPES.BUTTON_DOWN)
-	
-	
+
+
 func _ready() -> void:
 	# associates the enum type with the actual file in a dict
 	for sfx in sound_effects:
 		sound_effect_dict[sfx.type] = sfx
-	
 
 
-		
 # NOTE: VOLUME IS A PERCENTAGE BETWEEN 0 AND 1
 func play_sfx(type : SFX.SOUND_EFFECT_TYPES) -> void:
 	var new_player : AudioStreamPlayer= AudioStreamPlayer.new()

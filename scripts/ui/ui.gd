@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var flip: Label
 @export var transparency: Label
 @export var ui: Label
+
 var label_arr : Array
 var label_text_arr : Array = [
 	"open settings",
@@ -18,6 +19,7 @@ func _ready() -> void:
 	label_arr = [settings, rotate, flip, transparency, ui]
 	EventBus.update_UI.connect(_UI_update)
 	_UI_update("labels")
+
 
 func _UI_update(update_item: String) -> void:
 	if update_item == "visibility":

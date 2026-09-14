@@ -19,6 +19,7 @@ layout_mode = 2
 text = "debug info"
 
 [node name="DebugToggleLabelHBox" type="HBoxContainer" parent="DebugVBox" unique_id=886670919]
+visible = false
 layout_mode = 2
 
 [node name="DebugToggleLabel" type="Label" parent="DebugVBox/DebugToggleLabelHBox" unique_id=711880245]

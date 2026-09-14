@@ -15,9 +15,11 @@ func _slider_value_changed(value: float, type: String) -> void:
 	var index : int = AudioServer.get_bus_index(type)
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
 
+
 func _on_button_pressed(button_name: String) -> void:
 	Global.current_popup_page = button_name
 	EventBus.settings_pages.emit()
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Settings"):

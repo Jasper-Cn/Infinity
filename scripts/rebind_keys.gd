@@ -7,6 +7,8 @@ var is_rebinding : bool
 var rebinding_button : Button
 var max_scroll: float 
 var prev_event: InputEvent
+
+
 func _ready() -> void:
 	super()
 	max_scroll = get_viewport().size.y - panel.size.y
@@ -19,6 +21,7 @@ func _rebind_button_pressed(source_id: Object, source_name: String) -> void:
 		rebinding_button = source_id
 		rebinding_button.modulate.r = 0
 		is_rebinding = true
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Global.current_popup_page == popup_name:

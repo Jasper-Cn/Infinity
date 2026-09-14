@@ -1,13 +1,16 @@
-class_name PopupUI extends CanvasLayer
+extends CanvasLayer
+class_name PopupUI
 
 @export var popup_name : String = ""
 
 var roots: Array = ["Settings", "Credits"]
 var is_root: bool = false
 
+
 func _ready() -> void:
 	EventBus.settings_pages.connect(_show_page)
 	hide()
+
 
 func _show_page() -> void:
 	if Global.current_popup_page == popup_name:
@@ -15,8 +18,10 @@ func _show_page() -> void:
 	else:
 		hide()
 
+
 func _on_back_button_pressed() -> void:
 	on_settings_button_pressed()
+
 
 func on_settings_button_pressed() -> void:
 	is_root = false
