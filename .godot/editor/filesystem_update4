@@ -18,3 +18,5 @@ res://scripts/ui/settings.gd
 res://scripts/ui/ui.gd
 res://scripts/rebind_keys.gd
 res://autoloads/debug.tscn
+res://scenes/settings.tscn
+res://scripts/camera_effects.gd

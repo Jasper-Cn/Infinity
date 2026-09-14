@@ -103,6 +103,25 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="HB control type" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=194835205]
+layout_mode = 2
+alignment = 1
+
+[node name="control type" type="RichTextLabel" parent="Panel/MarginContainer/VB/HB control type" unique_id=450455488]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Changes control type
+CAUTION: doesn't work with rebind page yet"
+text = "Control Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="control type Button" type="Button" parent="Panel/MarginContainer/VB/HB control type" unique_id=2016110007]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Multi"
+
 [node name="HB rotation animations" type="HBoxContainer" parent="Panel/MarginContainer/VB" unique_id=468287032]
 layout_mode = 2
 alignment = 1
@@ -181,6 +200,7 @@ visible = false
 
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBmusic/Music Slider" to="." method="_slider_value_changed" binds= ["Music"]]
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBsfx/sfx Slider" to="." method="_slider_value_changed" binds= ["SFX"]]
+[connection signal="pressed" from="Panel/MarginContainer/VB/HB control type/control type Button" to="." method="_on_control_type_button_pressed" flags=18]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB rotation animations/rotation animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [0]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB flip animations/flip animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [1]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB click animations/click animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [2]]

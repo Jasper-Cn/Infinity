@@ -38,3 +38,15 @@ func _on_animations_button_pressed(source: Button, i: int) -> void:
 			source.text = "minimal"
 		2:
 			source.text = "off"
+
+
+func _on_control_type_button_pressed(source: BaseButton) -> void:
+	Global.control_type += 1
+	Global.control_type %= 3
+	match Global.control_type:
+		0:
+			source.text = "Multi"
+		1:
+			source.text = "Keyboard"
+		2:
+			source.text = "Mouse"

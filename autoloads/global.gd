@@ -8,3 +8,4 @@ var debug_mode : bool = true
 var mouse_dragging_item: Node = null
 var current_popup_page: String
 var animations_type: Array = [0, 0, 1]
+var control_type: int = 0
