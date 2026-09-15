@@ -36,6 +36,7 @@ func _ready() -> void:
 	rect_arr = [color_rect_1, color_rect_2, color_rect_3, color_rect_4]
 	EventBus.update_subject_color.connect(_set_color)
 	EventBus.drag.connect(_stop_dragging)
+	EventBus.get_subject_info.connect(_subject_info_dump)
 	_set_color()
 
 
@@ -46,25 +47,7 @@ func _process(delta: float) -> void:
 				_set_color()
 				z_index += 1
 				if Global.control_type == 1:
-					if Input.is_action_just_pressed("Left"):
-						ideal_global_position.x -= 90
-					if Input.is_action_just_pressed("Right"):
-						ideal_global_position.x += 90
-					if Input.is_action_just_pressed("Up"):
-						ideal_global_position.y -= 90
-					if Input.is_action_just_pressed("Down"):
-						ideal_global_position.y += 90
-					var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
-					if input_dir != Vector2.ZERO:
-						timer += delta
-						if timer >= wait_time:
-							ideal_global_position += ceil(input_dir) * 90
-							wait_time = 0.05
-							timer = 0
-						_tween_position_property()
-					else:
-						timer = 0
-						wait_time = 0.3
+					_control_type_1_subject_movement(delta)
 				elif Global.animations_type[3] == 2:
 					global_position = get_global_mouse_position()
 					global_position = global_position.snapped(Global.TILE_SIZE)
@@ -102,6 +85,28 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Transparency"):
 			color.a = 1.8 - color.a
 			_set_color()
+
+
+func _control_type_1_subject_movement(delta: float) -> void:
+	if Input.is_action_just_pressed("Left"):
+		ideal_global_position.x -= 90
+	if Input.is_action_just_pressed("Right"):
+		ideal_global_position.x += 90
+	if Input.is_action_just_pressed("Up"):
+		ideal_global_position.y -= 90
+	if Input.is_action_just_pressed("Down"):
+		ideal_global_position.y += 90
+	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
+	if input_dir != Vector2.ZERO:
+		timer += delta
+		if timer >= wait_time:
+			ideal_global_position += ceil(input_dir) * 90
+			wait_time = 0.05
+			timer = 0
+		_tween_position_property()
+	else:
+		timer = 0
+		wait_time = 0.3
 
 
 func _tween_position_property(duration: float = 0.1) -> void:
@@ -204,3 +209,8 @@ func _on_color_rect_5_mouse(in_area: bool) -> void:
 			else:
 				_set_color()
 		is_touching_mouse = in_area
+
+
+func _subject_info_dump(subject_num: int) -> void:
+	if subject_num == self_number:
+		Global.subject_info = [int(position.x), int(position.y), ideal_rotation_degrees, ideal_scale_x]

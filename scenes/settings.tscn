@@ -8,10 +8,12 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8627451)
 
-[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider")]
+[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "timer")]
 script = ExtResource("1_5p8wc")
 animations_button = NodePath("Panel/MarginContainer/VB/HB rotation animations/rotation animations Button")
 sfx_slider = NodePath("Panel/MarginContainer/VB/HBsfx/sfx Slider")
+copy_button = NodePath("Panel/MarginContainer/VB/copy Button")
+timer = NodePath("Timer")
 popup_name = "Settings"
 
 [node name="Panel" type="Panel" parent="." unique_id=401543779]
@@ -22,9 +24,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = -347.0
+offset_top = -438.0
 offset_right = 280.0
-offset_bottom = 365.0
+offset_bottom = 456.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -190,6 +192,18 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "full"
 
+[node name="copy Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=630262424]
+modulate = Color(1, 0, 1, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Copy arangement"
+
+[node name="paste Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=759007288]
+modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Paste arangement"
+
 [node name="Rebind Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=761795313]
 modulate = Color(0, 1, 1, 1)
 custom_minimum_size = Vector2(0, 50)
@@ -215,6 +229,10 @@ visible = false
 [node name="recolor keys" parent="." unique_id=336347478 instance=ExtResource("4_f4mfi")]
 visible = false
 
+[node name="Timer" type="Timer" parent="." unique_id=60310940]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBmusic/Music Slider" to="." method="_slider_value_changed" binds= ["Music"]]
 [connection signal="value_changed" from="Panel/MarginContainer/VB/HBsfx/sfx Slider" to="." method="_slider_value_changed" binds= ["SFX"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB control type/control type Button" to="." method="_on_control_type_button_pressed" flags=18]
@@ -222,6 +240,9 @@ visible = false
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB flip animations/flip animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [1]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB click animations/click animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [2]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB move animations/move animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [3]]
+[connection signal="pressed" from="Panel/MarginContainer/VB/copy Button" to="." method="_on_copy_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VB/paste Button" to="." method="_on_paste_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VB/Rebind Button" to="." method="_on_button_pressed" binds= ["Rebind"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/Recolor Blocks" to="." method="_on_button_pressed" binds= ["Recolor"]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

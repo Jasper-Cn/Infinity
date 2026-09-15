@@ -1,8 +1,7 @@
-res://scripts/subject.gd
-res://scenes/rebind_keys.tscn
-res://scenes/settings.tscn
 res://scripts/ui/settings.gd
-res://autoloads/global.gd
-res://scenes/game.tscn
-res://autoloads/event_bus.gd
+res://scenes/settings.tscn
+res://scripts/subject.gd
 res://scenes/subject.tscn
+res://autoloads/event_bus.gd
+res://autoloads/global.gd
+res://scripts/popup.gd

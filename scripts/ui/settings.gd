@@ -2,6 +2,8 @@ extends PopupUI
 
 @export var animations_button: Button
 @export var sfx_slider: HSlider
+@export var copy_button: Button
+@export var timer: Timer
 
 func _ready() -> void:
 	super()
@@ -50,3 +52,35 @@ func _on_control_type_button_pressed(source: BaseButton) -> void:
 			source.text = "Keyboard"
 		2:
 			source.text = "Mouse"
+
+
+func _on_copy_button_pressed() -> void:
+	var full_subject_info: Array
+	for i in 10:
+		EventBus.get_subject_info.emit(i)
+		Global.subject_info[0] /= 90
+		Global.subject_info[0] += 3
+		Global.subject_info[1] /= 90
+		Global.subject_info[1] += 4
+		Global.subject_info[2] %= 360
+		Global.subject_info[2] /= 90
+		if Global.subject_info[2] < 0:
+			Global.subject_info[2] = 4 + Global.subject_info[1]
+		if Global.subject_info[3] == -1:
+			Global.subject_info[3] = 1
+		else:
+			Global.subject_info[3] = 0
+		full_subject_info.append(Global.subject_info)
+		#print(Global.subject_info)
+	DisplayServer.clipboard_set(str(full_subject_info))
+	copy_button.text = "copied!"
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	copy_button.text = "Copy arrangements"
+
+
+func _on_paste_button_pressed() -> void:
+	var a: Variant = str_to_var(DisplayServer.clipboard_get())
+	print(a[0])

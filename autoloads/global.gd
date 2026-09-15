@@ -10,3 +10,4 @@ var previous_mdi: int = mouse_dragging_item
 var current_popup_page: String
 var animations_type: Array = [0, 0, 1, 0]
 var control_type: int = 0
+var subject_info: Array = ["position.x", "position.y", "rotation_degrees", "scale.x"]
