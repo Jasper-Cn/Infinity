@@ -38,7 +38,6 @@ color = Color(1, 0.39215687, 0.39215687, 1)
 coord_1 = Vector2i(0, 1)
 coord_2 = Vector2i(0, 2)
 coord_3 = Vector2i(0, 3)
-coord_4 = Vector2i(0, 0)
 
 [node name="Subject1" parent="subjects" unique_id=1732215189 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, -720)
@@ -74,7 +73,6 @@ self_number = 4
 coord_1 = Vector2i(-2, 0)
 coord_2 = Vector2i(-2, 1)
 coord_3 = Vector2i(-1, 0)
-coord_4 = Vector2i(0, 0)
 
 [node name="Subject5" parent="subjects" unique_id=1881981243 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, -450)
@@ -83,7 +81,6 @@ self_number = 5
 coord_1 = Vector2i(1, 0)
 coord_2 = Vector2i(1, 1)
 coord_3 = Vector2i(2, 1)
-coord_4 = Vector2i(0, 0)
 
 [node name="Subject6" parent="subjects" unique_id=406337915 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, -180)

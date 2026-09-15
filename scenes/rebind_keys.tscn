@@ -204,7 +204,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 0 button"
+tooltip_text = "Rebind the select block 0 button"
 text = "Block 0"
 horizontal_alignment = 1
 
@@ -221,7 +221,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 1 button"
+tooltip_text = "Rebind the select block 1 button"
 text = "Block 1"
 horizontal_alignment = 1
 
@@ -238,7 +238,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 2 button"
+tooltip_text = "Rebind the select block 2 button"
 text = "Block 2"
 horizontal_alignment = 1
 
@@ -255,7 +255,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 3 button"
+tooltip_text = "Rebind the select block 3 button"
 text = "Block 3"
 horizontal_alignment = 1
 
@@ -272,7 +272,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 4 button"
+tooltip_text = "Rebind the select block 4 button"
 text = "Block 4"
 horizontal_alignment = 1
 
@@ -289,7 +289,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 5 button"
+tooltip_text = "Rebind the select block 5 button"
 text = "Block 5"
 horizontal_alignment = 1
 
@@ -306,7 +306,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 6 button"
+tooltip_text = "Rebind the select block 6 button"
 text = "Block 6"
 horizontal_alignment = 1
 
@@ -323,7 +323,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 7 button"
+tooltip_text = "Rebind the select block 7 button"
 text = "Block 7"
 horizontal_alignment = 1
 
@@ -340,7 +340,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 8 button"
+tooltip_text = "Rebind the select block 8 button"
 text = "Block 8"
 horizontal_alignment = 1
 
@@ -357,7 +357,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Rebind the show/hide block 9 button"
+tooltip_text = "Rebind the select block 9 button"
 text = "Block 9"
 horizontal_alignment = 1
 
