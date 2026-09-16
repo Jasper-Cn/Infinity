@@ -60,9 +60,9 @@ func _on_copy_button_pressed() -> void:
 	for i in 10:
 		EventBus.get_subject_info.emit(i)
 		Global.subject_info[0] /= 90
-		Global.subject_info[0] += floor(float(Global.BOARD_SIZE.x)/2)
+		Global.subject_info[0] += int(floor(float(Global.BOARD_SIZE.x)/2))
 		Global.subject_info[1] /= 90
-		Global.subject_info[1] += floor(float(Global.BOARD_SIZE.y)/2)
+		Global.subject_info[1] += int(floor(float(Global.BOARD_SIZE.y)/2))
 		Global.subject_info[2] %= 360
 		Global.subject_info[2] /= 90
 		if Global.subject_info[2] < 0:
