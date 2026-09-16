@@ -12,11 +12,11 @@ res://resources/smallLabelTitle.tres::238714a0d9f148b445ba63598379b8d8::17882307
 res://resources/TitleLabel.tres::aef465d32ea0ff749b74e5990c41825c::1788230784::res://.godot/exported/133200997/export-5a638050ddc35b8c5fe10ff8b32a9613-TitleLabel.res
 res://scenes/credits.tscn::42624fdbafe10582af9fe43568f78c37::1788497492::res://.godot/exported/133200997/export-5458de4021be8c034221a84b705724a2-credits.scn
 res://scenes/cutscene_tutorial.tscn::a37cecdc3f5a6b60a4380618ca772ce7::1788230784::res://.godot/exported/133200997/export-c0638d456bcc152cc758ee82055a0804-cutscene_tutorial.scn
-res://scenes/game.tscn::759d4b72ef3202522fe49889ec951135::1789443858::res://.godot/exported/133200997/export-c2a7af834e91ff64325daddf58e45dc0-game.scn
+res://scenes/game.tscn::14645f319ef540377c0cb1e1c7ba96e4::1789534947::res://.godot/exported/133200997/export-c2a7af834e91ff64325daddf58e45dc0-game.scn
 res://scenes/Popup.tscn::ab0763b4a3b7fe4836b9654d9109a715::1788493794::res://.godot/exported/133200997/export-9c8728bcd0a0bc539eb2040a63df6db4-Popup.scn
 res://scenes/rebind_keys.tscn::11fa07b34c56ef452dfe26c02e37b461::1789437055::res://.godot/exported/133200997/export-eacb8d245ade20e1f0b26059da5fde3b-rebind_keys.scn
 res://scenes/board.tscn::687f24133cb679807d25f36896252d85::1789350772::res://.godot/exported/133200997/export-7af1610c67933587f82174b6bfa726df-board.scn
-res://scenes/settings.tscn::46d554421fffc5c8e799a45876984ee7::1789437273::res://.godot/exported/133200997/export-7416c78d345eded4b396246a6c8adbe0-settings.scn
-res://scenes/subject.tscn::2532265d8057345d85729209ed7ce17e::1789443704::res://.godot/exported/133200997/export-ed18ed58ec000e16f9768d3f4e076d77-subject.scn
+res://scenes/settings.tscn::ddc308eceb85b902aabd6100d7763f61::1789538039::res://.godot/exported/133200997/export-7416c78d345eded4b396246a6c8adbe0-settings.scn
+res://scenes/subject.tscn::50365ee4774e3441ba44128cc34441ca::1789539945::res://.godot/exported/133200997/export-ed18ed58ec000e16f9768d3f4e076d77-subject.scn
 res://scenes/ui.tscn::b752a3c5c10b3a7519eebf8fae5d6fdc::1789280967::res://.godot/exported/133200997/export-9211dc52ac9df169ba4fe77cbc1dc833-ui.scn
 res://scenes/recolor_blocks.tscn::f4cbba8736aaad0db92147055c969475::1789359225::res://.godot/exported/133200997/export-b9ebf28de7482075082c593782510bb3-recolor_blocks.scn
