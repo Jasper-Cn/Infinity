@@ -1,7 +1,8 @@
-res://scripts/ui/settings.gd
 res://scenes/settings.tscn
-res://scripts/subject.gd
-res://scenes/subject.tscn
-res://autoloads/event_bus.gd
+res://scripts/ui/settings.gd
 res://autoloads/global.gd
-res://scripts/popup.gd
+res://autoloads/event_bus.gd
+res://scripts/subject.gd
+res://scenes/game.tscn
+res://scripts/board.gd
+res://scenes/subject.tscn

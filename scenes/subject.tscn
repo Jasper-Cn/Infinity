@@ -196,13 +196,14 @@ _data = {
 &"rotate to 90": SubResource("Animation_s3p0e")
 }
 
-[node name="Subject" type="Node2D" unique_id=1732215189 node_paths=PackedStringArray("color_rect_0", "color_rect_1", "color_rect_2", "color_rect_3", "color_rect_4", "rotation_2d", "flip_2d", "label")]
+[node name="Subject" type="Node2D" unique_id=1732215189 node_paths=PackedStringArray("color_rect_0", "color_rect_1", "color_rect_2", "color_rect_3", "color_rect_4", "color_rect_5", "rotation_2d", "flip_2d", "label")]
 script = ExtResource("1_8psgo")
 color_rect_0 = NodePath("Flip2D/Rotation2D/ColorRect0")
 color_rect_1 = NodePath("Flip2D/Rotation2D/ColorRect1")
 color_rect_2 = NodePath("Flip2D/Rotation2D/ColorRect2")
 color_rect_3 = NodePath("Flip2D/Rotation2D/ColorRect3")
 color_rect_4 = NodePath("Flip2D/Rotation2D/ColorRect4")
+color_rect_5 = NodePath("Flip2D/Rotation2D/ColorRect5")
 rotation_2d = NodePath("Flip2D/Rotation2D")
 flip_2d = NodePath("Flip2D")
 label = NodePath("Label")
@@ -226,6 +227,7 @@ offset_top = -40.0
 offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 color = Color(1, 1, 1, 0.5019608)
 
 [node name="ColorRect1" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=435501442]
@@ -258,6 +260,7 @@ offset_top = -130.0
 offset_right = 40.0
 offset_bottom = -50.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 color = Color(1, 1, 1, 0.5019608)
 
 [node name="ColorRect5" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=1736429884]

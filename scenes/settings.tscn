@@ -8,11 +8,12 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8627451)
 
-[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "timer")]
+[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "paste_button", "timer")]
 script = ExtResource("1_5p8wc")
 animations_button = NodePath("Panel/MarginContainer/VB/HB rotation animations/rotation animations Button")
 sfx_slider = NodePath("Panel/MarginContainer/VB/HBsfx/sfx Slider")
 copy_button = NodePath("Panel/MarginContainer/VB/copy Button")
+paste_button = NodePath("Panel/MarginContainer/VB/paste Button")
 timer = NodePath("Timer")
 popup_name = "Settings"
 
@@ -196,13 +197,13 @@ text = "full"
 modulate = Color(1, 0, 1, 1)
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Copy arangement"
+text = "Copy arrangement"
 
 [node name="paste Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=759007288]
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Paste arangement"
+text = "Paste arrangement"
 
 [node name="Rebind Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=761795313]
 modulate = Color(0, 1, 1, 1)
@@ -226,7 +227,7 @@ text = "Back"
 [node name="rebind keys" parent="." unique_id=2019617526 instance=ExtResource("3_6wm04")]
 visible = false
 
-[node name="recolor keys" parent="." unique_id=336347478 instance=ExtResource("4_f4mfi")]
+[node name="recolor blocks" parent="." unique_id=336347478 instance=ExtResource("4_f4mfi")]
 visible = false
 
 [node name="Timer" type="Timer" parent="." unique_id=60310940]

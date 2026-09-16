@@ -13,6 +13,7 @@ class_name Subject
 @export var color_rect_2: ColorRect
 @export var color_rect_3: ColorRect
 @export var color_rect_4: ColorRect
+@export var color_rect_5: ColorRect
 
 @export var rotation_2d: Node2D
 @export var flip_2d: Node2D
@@ -34,18 +35,22 @@ func _ready() -> void:
 	label.text = str(self_number)
 	coord_arr = [coord_1, coord_2, coord_3, coord_4]
 	rect_arr = [color_rect_1, color_rect_2, color_rect_3, color_rect_4]
+	EventBus.get_subject_info.connect(_subject_info_dump)
+	EventBus.set_subject_info.connect(_subject_info_grab)
 	EventBus.update_subject_color.connect(_set_color)
 	EventBus.drag.connect(_stop_dragging)
-	EventBus.get_subject_info.connect(_subject_info_dump)
 	_set_color()
 
 
 func _process(delta: float) -> void:
+	if is_touching_mouse:
+		print(self_number)
 	if Global.current_popup_page == "":
 		if visible:
 			if Global.mouse_dragging_item == self_number:
 				_set_color()
 				z_index += 1
+				get_parent().move_child(self, 0)
 				if Global.control_type == 1:
 					_control_type_1_subject_movement(delta)
 				elif Global.animations_type[3] == 2:
@@ -54,34 +59,32 @@ func _process(delta: float) -> void:
 				else:
 					ideal_global_position = ideal_global_position.move_toward(get_global_mouse_position(), 80)
 					_tween_position_property()
-				if not Global.control_type == 2:
-					if Input.is_action_just_pressed("Rotate"):
-						_rotate()
-					if Input.is_action_just_pressed("Flip"):
-						_flip()
-				else:
-					if Input.is_action_just_pressed("Rotate-Mouse"):
-						_rotate()
-					if Input.is_action_just_pressed("Flip-Mouse"):
-						_flip()
+				var moused: String = ""
+				if Global.control_type == 2:
+					moused = "-Mouse"
+				if Input.is_action_just_pressed("Rotate" + moused):
+					_rotate()
+				if Input.is_action_just_pressed("Flip" + moused):
+					_flip()
 			else:
 				z_index = 0
+				get_parent().move_child(self, self_number)
 			if Input.is_action_just_pressed("click") and is_touching_mouse:
 				if not is_dragging and not Global.mouse_dragging_item == -1:
 					EventBus.drag.emit(Global.mouse_dragging_item)
 				_dragging()
-		if Input.is_action_just_pressed("set camera"):
-			if Global.control_type == 1:
-				if Global.mouse_dragging_item == self_number:
-					_dragging()
-				elif Global.previous_mdi == self_number and Global.mouse_dragging_item == -1:
-					_dragging()
-		if Input.is_action_just_pressed(str(self_number)):
-			if not Global.control_type == 2:
-				if not is_dragging and not Global.mouse_dragging_item == -1:
-					EventBus.drag.emit(Global.mouse_dragging_item)
+		
+		if Input.is_action_just_pressed("set camera") and Global.control_type == 1:
+			if Global.mouse_dragging_item == self_number:
 				_dragging()
-					
+			elif Global.previous_mdi == self_number and Global.mouse_dragging_item == -1:
+				_dragging()
+		
+		if Input.is_action_just_pressed(str(self_number)) and not Global.control_type == 2:
+			if not is_dragging and not Global.mouse_dragging_item == -1:
+				EventBus.drag.emit(Global.mouse_dragging_item)
+			_dragging()
+		
 		if Input.is_action_just_pressed("Transparency"):
 			color.a = 1.8 - color.a
 			_set_color()
@@ -118,8 +121,16 @@ func _tween_position_property(duration: float = 0.1) -> void:
 			tweener.tween_property(self, "global_position", Vector2(floor((ideal_global_position.x+45)/90)*90, floor((ideal_global_position.y+45)/90)*90), duration)
 
 
-func _set_color(rect_0: float = 0.2, rect_other: float = 0) -> void:
-	color_rect_0.color = Color(color.r - rect_0, color.g - rect_0, color.b - rect_0)
+func _position_tween_to_grid() -> void:
+	Global.previous_mdi = Global.mouse_dragging_item
+	Global.mouse_dragging_item = -1
+	ideal_global_position.x = floor((ideal_global_position.x+45)/90)*90
+	ideal_global_position.y = floor((ideal_global_position.y+45)/90)*90
+	_tween_position_property()
+
+
+func _set_color(rect_0_minus_color: float = 0.2, rect_other: float = 0) -> void:
+	color_rect_0.color = Color(color.r - rect_0_minus_color, color.g - rect_0_minus_color, color.b - rect_0_minus_color)
 	for i in rect_arr.size():
 		if coord_arr[i] == Vector2i(0, 0):
 			rect_arr[i].hide()
@@ -157,21 +168,6 @@ func _flip() -> void:
 	_color_rect_tweening("rotation_degrees", ideal_block_rotation_degrees, 0)
 
 
-func _stop_dragging(selected_num: int) -> void:
-	if selected_num == self_number:
-		is_dragging = not is_dragging
-		_position_tween_to_grid()
-		_color_rect_tweening("scale", Vector2(1, 1), 0.1)
-
-
-func _position_tween_to_grid() -> void:
-	Global.previous_mdi = Global.mouse_dragging_item
-	Global.mouse_dragging_item = -1
-	ideal_global_position.x = floor((ideal_global_position.x+45)/90)*90
-	ideal_global_position.y = floor((ideal_global_position.y+45)/90)*90
-	_tween_position_property()
-
-
 func _dragging() -> void:
 	is_dragging = not is_dragging
 	ideal_global_position = global_position
@@ -191,6 +187,13 @@ func _dragging() -> void:
 	else:
 		mult = 1
 	_color_rect_tweening("scale", Vector2(mult, mult), 0.1)
+
+
+func _stop_dragging(selected_num: int) -> void:
+	if selected_num == self_number:
+		is_dragging = not is_dragging
+		_position_tween_to_grid()
+		_color_rect_tweening("scale", Vector2(1, 1), 0.1)
 
 
 func _color_rect_tweening(type: String, final_val: Variant, duration: float) -> void:
@@ -214,3 +217,20 @@ func _on_color_rect_5_mouse(in_area: bool) -> void:
 func _subject_info_dump(subject_num: int) -> void:
 	if subject_num == self_number:
 		Global.subject_info = [int(position.x), int(position.y), ideal_rotation_degrees, ideal_scale_x]
+
+
+func _subject_info_grab(pasted_subject_info: Array) -> void:
+	pasted_subject_info[self_number][0] -= floor(float(Global.BOARD_SIZE.x)/2)
+	pasted_subject_info[self_number][0] *= 90
+	pasted_subject_info[self_number][1] -= floor(float(Global.BOARD_SIZE.y)/2)
+	pasted_subject_info[self_number][1] *= 90
+	pasted_subject_info[self_number][2] *= 90
+	if pasted_subject_info[self_number][3] == 0:
+		pasted_subject_info[self_number][3] = 1
+	else:
+		pasted_subject_info[self_number][3] = -1
+	position = Vector2(pasted_subject_info[self_number][0], pasted_subject_info[self_number][1])
+	ideal_rotation_degrees = pasted_subject_info[self_number][2]
+	ideal_scale_x = pasted_subject_info[self_number][3]
+	rotation_2d.rotation_degrees = ideal_rotation_degrees
+	flip_2d.scale.x = ideal_scale_x

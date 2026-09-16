@@ -3,6 +3,7 @@ extends PopupUI
 @export var animations_button: Button
 @export var sfx_slider: HSlider
 @export var copy_button: Button
+@export var paste_button: Button
 @export var timer: Timer
 
 func _ready() -> void:
@@ -59,9 +60,9 @@ func _on_copy_button_pressed() -> void:
 	for i in 10:
 		EventBus.get_subject_info.emit(i)
 		Global.subject_info[0] /= 90
-		Global.subject_info[0] += 3
+		Global.subject_info[0] += floor(float(Global.BOARD_SIZE.x)/2)
 		Global.subject_info[1] /= 90
-		Global.subject_info[1] += 4
+		Global.subject_info[1] += floor(float(Global.BOARD_SIZE.y)/2)
 		Global.subject_info[2] %= 360
 		Global.subject_info[2] /= 90
 		if Global.subject_info[2] < 0:
@@ -78,9 +79,15 @@ func _on_copy_button_pressed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	copy_button.text = "Copy arrangements"
+	copy_button.text = "Copy arrangement"
+	paste_button.text = "Paste arrangement"
 
 
 func _on_paste_button_pressed() -> void:
-	var a: Variant = str_to_var(DisplayServer.clipboard_get())
-	print(a[0])
+	var pasted_subject_info: Variant = str_to_var(DisplayServer.clipboard_get())
+	if pasted_subject_info is Array:
+		paste_button.text = "pasted!"
+		EventBus.set_subject_info.emit(pasted_subject_info)
+	else:
+		paste_button.text = "Pasted invalid text"
+	timer.start()

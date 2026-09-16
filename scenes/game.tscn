@@ -126,7 +126,7 @@ tile_set = SubResource("TileSet_fwlhj")
 
 [node name="Settings" parent="." unique_id=271222457 instance=ExtResource("5_iywne")]
 
-[node name="recolor keys" parent="Settings" index="2" unique_id=336347478 node_paths=PackedStringArray("subject")]
+[node name="recolor blocks" parent="Settings" index="2" unique_id=336347478 node_paths=PackedStringArray("subject")]
 subject = NodePath("../../subjects")
 
 [editable path="Settings"]
