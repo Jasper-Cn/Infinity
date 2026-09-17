@@ -1,6 +1,8 @@
 extends Node2D
 class_name Subject
 
+const BLOCK_SIZE: float = 80
+
 @export var color: Color = Color("WHITE")
 @export var self_number: int
 @export var coord_1: Vector2i
@@ -39,12 +41,12 @@ func _ready() -> void:
 	EventBus.set_subject_info.connect(_subject_info_grab)
 	EventBus.update_subject_color.connect(_set_color)
 	EventBus.drag.connect(_stop_dragging)
-	_set_color()
+	_set_position()
 
 
 func _process(delta: float) -> void:
-	if is_touching_mouse:
-		print(self_number)
+	#if is_touching_mouse:
+		#print(self_number)
 	if Global.current_popup_page == "":
 		if visible:
 			if Global.mouse_dragging_item == self_number:
@@ -92,18 +94,18 @@ func _process(delta: float) -> void:
 
 func _control_type_1_subject_movement(delta: float) -> void:
 	if Input.is_action_just_pressed("Left"):
-		ideal_global_position.x -= 90
+		ideal_global_position.x -= Global.TILE_SIZE.x
 	if Input.is_action_just_pressed("Right"):
-		ideal_global_position.x += 90
+		ideal_global_position.x += Global.TILE_SIZE.x
 	if Input.is_action_just_pressed("Up"):
-		ideal_global_position.y -= 90
+		ideal_global_position.y -= Global.TILE_SIZE.y
 	if Input.is_action_just_pressed("Down"):
-		ideal_global_position.y += 90
+		ideal_global_position.y += Global.TILE_SIZE.y
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	if input_dir != Vector2.ZERO:
 		timer += delta
 		if timer >= wait_time:
-			ideal_global_position += ceil(input_dir) * 90
+			ideal_global_position += ceil(input_dir) * Global.TILE_SIZE
 			wait_time = 0.05
 			timer = 0
 		_tween_position_property()
@@ -118,31 +120,38 @@ func _tween_position_property(duration: float = 0.1) -> void:
 		0:
 			tweener.tween_property(self, "global_position", Vector2(ideal_global_position.x, ideal_global_position.y), duration)
 		1:
-			tweener.tween_property(self, "global_position", Vector2(floor((ideal_global_position.x+45)/90)*90, floor((ideal_global_position.y+45)/90)*90), duration)
+			tweener.tween_property(self, "global_position", _calculate_ideal_global_position(), duration)
 
 
 func _position_tween_to_grid() -> void:
 	Global.previous_mdi = Global.mouse_dragging_item
 	Global.mouse_dragging_item = -1
-	ideal_global_position.x = floor((ideal_global_position.x+45)/90)*90
-	ideal_global_position.y = floor((ideal_global_position.y+45)/90)*90
+	ideal_global_position = _calculate_ideal_global_position()
 	_tween_position_property()
+
+
+func _calculate_ideal_global_position() -> Vector2:
+	return Vector2(floor((ideal_global_position.x + (Global.TILE_SIZE.x/2))/Global.TILE_SIZE.x)*Global.TILE_SIZE.x,
+				   floor((ideal_global_position.y + (Global.TILE_SIZE.y/2))/Global.TILE_SIZE.y)*Global.TILE_SIZE.y)
 
 
 func _set_color(rect_0_minus_color: float = 0.2, rect_other: float = 0) -> void:
 	color_rect_0.color = Color(color.r - rect_0_minus_color, color.g - rect_0_minus_color, color.b - rect_0_minus_color)
 	for i in rect_arr.size():
+		rect_arr[i].color = Color(color.r - rect_other, color.g - rect_other, color.b - rect_other)
+
+func _set_position() -> void:
+	for i in rect_arr.size():
 		if coord_arr[i] == Vector2i(0, 0):
 			rect_arr[i].hide()
 		else:
-			rect_arr[i].position.x = coord_arr[i].x * 90 - 40
-			rect_arr[i].position.y = coord_arr[i].y * 90 - 40
-		rect_arr[i].color = Color(color.r - rect_other, color.g - rect_other, color.b - rect_other)
-
+			rect_arr[i].position.x = coord_arr[i].x * Global.TILE_SIZE.x - BLOCK_SIZE/2
+			rect_arr[i].position.y = coord_arr[i].y * Global.TILE_SIZE.y - BLOCK_SIZE/2
+	_set_color()
 
 func _rotate() -> void:
-	ideal_rotation_degrees += ideal_scale_x * 90
-	ideal_block_rotation_degrees -= ideal_scale_x * 90
+	ideal_rotation_degrees += ideal_scale_x * int(Global.ROTATION_DEGREES_AMOUNT)
+	ideal_block_rotation_degrees -= ideal_scale_x * int(Global.ROTATION_DEGREES_AMOUNT)
 	if Global.animations_type[0] < 2:
 		var tweener : Tween = get_tree().create_tween()
 		tweener.tween_property(rotation_2d, "rotation_degrees", ideal_rotation_degrees, 0.3)
@@ -219,18 +228,10 @@ func _subject_info_dump(subject_num: int) -> void:
 		Global.subject_info = [int(position.x), int(position.y), ideal_rotation_degrees, ideal_scale_x]
 
 
-func _subject_info_grab(pasted_subject_info: Array) -> void:
-	pasted_subject_info[self_number][0] -= floor(float(Global.BOARD_SIZE.x)/2)
-	pasted_subject_info[self_number][0] *= 90
-	pasted_subject_info[self_number][1] -= floor(float(Global.BOARD_SIZE.y)/2)
-	pasted_subject_info[self_number][1] *= 90
-	pasted_subject_info[self_number][2] *= 90
-	if pasted_subject_info[self_number][3] == 0:
-		pasted_subject_info[self_number][3] = 1
-	else:
-		pasted_subject_info[self_number][3] = -1
-	position = Vector2(pasted_subject_info[self_number][0], pasted_subject_info[self_number][1])
-	ideal_rotation_degrees = pasted_subject_info[self_number][2]
-	ideal_scale_x = pasted_subject_info[self_number][3]
-	rotation_2d.rotation_degrees = ideal_rotation_degrees
-	flip_2d.scale.x = ideal_scale_x
+func _subject_info_grab(subject_num: int, pasted_subject_info: Array) -> void:
+	if subject_num == self_number:
+		position = Vector2(pasted_subject_info[0], pasted_subject_info[1])
+		ideal_rotation_degrees = pasted_subject_info[2]
+		ideal_scale_x = pasted_subject_info[3]
+		rotation_2d.rotation_degrees = ideal_rotation_degrees
+		flip_2d.scale.x = ideal_scale_x

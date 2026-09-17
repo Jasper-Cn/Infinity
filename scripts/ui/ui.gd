@@ -9,7 +9,7 @@ extends CanvasLayer
 var label_arr : Array
 var label_text_arr : Array = [
 	"open settings",
-	"rotate 90 degrees",
+	"rotate " + str(Global.ROTATION_DEGREES_AMOUNT) +  " degrees",
 	"flip",
 	"make semi-transparent",
 	"show/hide the UI",

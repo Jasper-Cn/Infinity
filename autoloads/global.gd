@@ -4,6 +4,8 @@ const GAME = preload("res://scenes/game.tscn")
 const SETTINGS = preload("res://scenes/settings.tscn")
 const TILE_SIZE = Vector2(90, 90)
 const BOARD_SIZE = Vector2i(7, 8)
+const ROTATION_DEGREES_AMOUNT: float = 90
+const NUM_OF_SUBJECTS = 10
 
 var debug_mode : bool = true
 var mouse_dragging_item: int = -1
