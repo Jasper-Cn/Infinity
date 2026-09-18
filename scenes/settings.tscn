@@ -196,26 +196,26 @@ layout_mode = 2
 text = "full"
 
 [node name="Copy" type="TextEdit" parent="Panel/MarginContainer/VB" unique_id=1394708770]
+visible = false
 modulate = Color(1, 0, 1, 1)
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 placeholder_text = "Copy Arrangement From Here"
 
 [node name="Paste" type="TextEdit" parent="Panel/MarginContainer/VB" unique_id=498412981]
+visible = false
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 placeholder_text = "Paste Arrangement To Here"
 
 [node name="copy Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=630262424]
-visible = false
 modulate = Color(1, 0, 1, 1)
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Copy arrangement"
 
 [node name="paste Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=759007288]
-visible = false
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2

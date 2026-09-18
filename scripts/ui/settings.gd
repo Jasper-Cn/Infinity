@@ -35,7 +35,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func on_settings_button_pressed() -> void:
 	super()
-	_on_copy_button_pressed(true)
+	#if OS.has_feature("web"):
+		#_on_copy_button_pressed(true)
 
 
 func _on_animations_button_pressed(source: Button, i: int) -> void:
@@ -62,7 +63,7 @@ func _on_control_type_button_pressed(source: BaseButton) -> void:
 			source.text = "Mouse"
 
 
-func _on_copy_button_pressed(settings: bool = false) -> void:
+func _on_copy_button_pressed() -> void:
 	#var full_subject_info: Array
 	var condensed_subject_info: String = "#"
 	var condensed_position: int
@@ -94,24 +95,31 @@ func _on_copy_button_pressed(settings: bool = false) -> void:
 		if i < 9:
 			condensed_subject_info += ""
 	if OS.has_feature("web"):
-		copy.show()
-		copy_button.hide()
-		paste.show()
-		paste_button.hide()
-		# Use JavaScriptBridge to copy text via the browser
-		#if JavaScriptBridge.has_method("eval"):
-			# Prompt approach: Prompts the browser to show a native dialog box 
-			# where the user can copy the text manually, bypassing strict iframe blocks.
-		copy.text = condensed_subject_info
+		#copy.show()
+		#copy_button.hide()
+		#paste.show()
+		#paste_button.hide()
+		 #Use JavaScriptBridge to copy text via the browser
+		if JavaScriptBridge.has_method("eval"):
+			 #Prompt approach: Prompts the browser to show a native dialog box 
+			 #where the user can copy the text manually, bypassing strict iframe blocks.
+			#copy.text = condensed_subject_info
+			JavaScriptBridge.eval("prompt('Copy this text:', '" + condensed_subject_info + "');")
+		#var window: = JavaScriptBridge.get_interface("window")
+		#if window and window.navigator and window.navigator.clipboard:
+			#window.navigator.clipboard.writeText(condensed_subject_info)
+			#copy_button.text = "Successfully copied to web clipboard!"
+		#else:
+			#copy_button.text = "Web clipboard API not supported by this browser."
 	else:
-		copy.hide()
-		copy_button.show()
-		paste.hide()
-		paste_button.show()
+		#copy.hide()
+		#copy_button.show()
+		#paste.hide()
+		#paste_button.show()
 		# Standard native desktop clipboard behavior
 		DisplayServer.clipboard_set(condensed_subject_info)
-		if not settings:
-			copy_button.text = "copied!"
+		#if not settings:
+		copy_button.text = "copied!"
 	timer.start()
 	#print(condensed_subject_info)
 	#print(condensed_rotational_and_flip)
@@ -122,7 +130,11 @@ func _on_timer_timeout() -> void:
 
 
 func _on_paste_button_pressed() -> void:
-	var pasted_subject_info: Variant = DisplayServer.clipboard_get().substr(1)
+	var pasted_subject_info: Variant
+	if OS.has_feature("web") and JavaScriptBridge.has_method("eval"):
+		pasted_subject_info = JavaScriptBridge.eval("prompt('Paste your text here:');").substr(1)
+	else:
+		pasted_subject_info = DisplayServer.clipboard_get().substr(1)
 	#print(pasted_subject_info)
 	var regex: RegEx = RegEx.new()
 	regex.compile("^[0-9-]+$")
@@ -151,6 +163,7 @@ func _on_paste_button_pressed() -> void:
 			else:
 				array_i[3] = -1
 			EventBus.set_subject_info.emit(i, array_i)
-			paste_button.text = "pasted!"
-			paste.text = ""
+	#print("i got to end")
+	paste_button.text = "pasted!"
+	paste.text = ""
 	timer.start()
