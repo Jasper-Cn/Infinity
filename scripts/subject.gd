@@ -31,7 +31,7 @@ var ideal_block_rotation_degrees: int = 0
 var ideal_scale_x: int = 1
 var wait_time: float = 0.3
 var timer: float = 0
-
+var moused: String = ""
 
 func _ready() -> void:
 	label.text = str(self_number)
@@ -61,9 +61,10 @@ func _process(delta: float) -> void:
 				else:
 					ideal_global_position = ideal_global_position.move_toward(get_global_mouse_position(), 80)
 					_tween_position_property()
-				var moused: String = ""
 				if Global.control_type == 2:
 					moused = "-Mouse"
+				else:
+					moused = ""
 				if Input.is_action_just_pressed("Rotate" + moused):
 					_rotate()
 				if Input.is_action_just_pressed("Flip" + moused):
@@ -131,8 +132,7 @@ func _position_tween_to_grid() -> void:
 
 
 func _calculate_ideal_global_position() -> Vector2:
-	return Vector2(floor((ideal_global_position.x + (Global.TILE_SIZE.x/2))/Global.TILE_SIZE.x)*Global.TILE_SIZE.x,
-				   floor((ideal_global_position.y + (Global.TILE_SIZE.y/2))/Global.TILE_SIZE.y)*Global.TILE_SIZE.y)
+	return Vector2(floor((ideal_global_position + (Global.TILE_SIZE/2))/Global.TILE_SIZE)*Global.TILE_SIZE)
 
 
 func _set_color(rect_0_minus_color: float = 0.2, rect_other: float = 0) -> void:
@@ -225,13 +225,13 @@ func _on_color_rect_5_mouse(in_area: bool) -> void:
 
 func _subject_info_dump(subject_num: int) -> void:
 	if subject_num == self_number:
-		Global.subject_info = [int(position.x), int(position.y), ideal_rotation_degrees, ideal_scale_x]
+		Global.subject_info = [position, ideal_rotation_degrees, ideal_scale_x]
 
 
-func _subject_info_grab(subject_num: int, pasted_subject_info: Array) -> void:
+func _subject_info_grab(subject_num: int) -> void:
 	if subject_num == self_number:
-		position = Vector2(pasted_subject_info[0], pasted_subject_info[1])
-		ideal_rotation_degrees = pasted_subject_info[2]
-		ideal_scale_x = pasted_subject_info[3]
+		position = Global.subject_info[0]
+		ideal_rotation_degrees = Global.subject_info[1]
+		ideal_scale_x = Global.subject_info[2]
 		rotation_2d.rotation_degrees = ideal_rotation_degrees
 		flip_2d.scale.x = ideal_scale_x

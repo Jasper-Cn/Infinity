@@ -8,15 +8,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8627451)
 
-[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "paste_button", "timer", "copy", "paste")]
+[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "paste_button", "timer")]
 script = ExtResource("1_5p8wc")
 animations_button = NodePath("Panel/MarginContainer/VB/HB rotation animations/rotation animations Button")
 sfx_slider = NodePath("Panel/MarginContainer/VB/HBsfx/sfx Slider")
 copy_button = NodePath("Panel/MarginContainer/VB/copy Button")
 paste_button = NodePath("Panel/MarginContainer/VB/paste Button")
 timer = NodePath("Timer")
-copy = NodePath("Panel/MarginContainer/VB/Copy")
-paste = NodePath("Panel/MarginContainer/VB/Paste")
 popup_name = "Settings"
 
 [node name="Panel" type="Panel" parent="." unique_id=401543779]
@@ -195,20 +193,6 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "full"
 
-[node name="Copy" type="TextEdit" parent="Panel/MarginContainer/VB" unique_id=1394708770]
-visible = false
-modulate = Color(1, 0, 1, 1)
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-placeholder_text = "Copy Arrangement From Here"
-
-[node name="Paste" type="TextEdit" parent="Panel/MarginContainer/VB" unique_id=498412981]
-visible = false
-modulate = Color(0, 1, 0, 1)
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-placeholder_text = "Paste Arrangement To Here"
-
 [node name="copy Button" type="Button" parent="Panel/MarginContainer/VB" unique_id=630262424]
 modulate = Color(1, 0, 1, 1)
 custom_minimum_size = Vector2(200, 0)
@@ -257,7 +241,6 @@ one_shot = true
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB flip animations/flip animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [1]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB click animations/click animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [2]]
 [connection signal="pressed" from="Panel/MarginContainer/VB/HB move animations/move animations Button" to="." method="_on_animations_button_pressed" flags=18 binds= [3]]
-[connection signal="text_changed" from="Panel/MarginContainer/VB/Paste" to="." method="_on_paste_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VB/copy Button" to="." method="_on_copy_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VB/paste Button" to="." method="_on_paste_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VB/Rebind Button" to="." method="_on_button_pressed" binds= ["Rebind"]]

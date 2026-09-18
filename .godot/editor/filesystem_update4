@@ -1,2 +1,6 @@
 res://scripts/ui/settings.gd
 res://scenes/settings.tscn
+res://scripts/ui/ui.gd
+res://autoloads/global.gd
+res://autoloads/event_bus.gd
+res://scripts/subject.gd
