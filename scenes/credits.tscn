@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://dvllwtsgjuwth" path="res://scripts/credits.gd" id="1_0bpdh"]
 [ext_resource type="LabelSettings" uid="uid://nnk7ud04mjqa" path="res://resources/smallLabelTitle.tres" id="2_2ckv8"]
 
-[node name="Credits" type="CanvasLayer" unique_id=763178605]
+[node name="Credits" type="CanvasLayer" unique_id=763178605 node_paths=PackedStringArray("panel")]
 script = ExtResource("1_0bpdh")
 popup_name = "Credits"
+panel = NodePath("Panel")
 
 [node name="Panel" type="Panel" parent="." unique_id=650386394]
 self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)

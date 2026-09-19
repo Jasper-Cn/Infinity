@@ -8,22 +8,14 @@ bg_color = Color(0.6, 0.6, 0.6, 0.8627451)
 
 [node name="rebind keys" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("panel")]
 script = ExtResource("1_12sgy")
-panel = NodePath("Panel")
 popup_name = "Rebind"
+panel = NodePath("Panel")
 
 [node name="Panel" type="Panel" parent="." unique_id=401543779]
 self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -357.0
-offset_top = -800.0
-offset_right = 360.0
-offset_bottom = 937.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 912.0
+offset_right = 1629.0
+offset_bottom = 1737.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2

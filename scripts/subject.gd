@@ -32,8 +32,10 @@ var ideal_scale_x: int = 1
 var wait_time: float = 0.3
 var timer: float = 0
 var moused: String = ""
+var default_color: Color
 
 func _ready() -> void:
+	default_color = color
 	label.text = str(self_number)
 	coord_arr = [coord_1, coord_2, coord_3, coord_4]
 	rect_arr = [color_rect_1, color_rect_2, color_rect_3, color_rect_4]
@@ -41,26 +43,26 @@ func _ready() -> void:
 	EventBus.set_subject_info.connect(_subject_info_grab)
 	EventBus.update_subject_color.connect(_set_color)
 	EventBus.drag.connect(_stop_dragging)
+	EventBus.subject_something_update.connect(subject_change_property)
 	_set_position()
 
 
 func _process(delta: float) -> void:
-	#if is_touching_mouse:
-		#print(self_number)
 	if Global.current_popup_page == "":
 		if visible:
 			if Global.mouse_dragging_item == self_number:
 				_set_color()
 				z_index += 1
 				get_parent().move_child(self, 0)
-				if Global.control_type == 1:
-					_control_type_1_subject_movement(delta)
-				elif Global.animations_type[3] == 2:
-					global_position = get_global_mouse_position()
-					global_position = global_position.snapped(Global.TILE_SIZE)
-				else:
-					ideal_global_position = ideal_global_position.move_toward(get_global_mouse_position(), 80)
-					_tween_position_property()
+				if Global.mouse_over_ui_panel:
+					if Global.control_type == 1:
+						_control_type_1_subject_movement(delta)
+					elif Global.animations_type[3] == 2:
+						global_position = get_global_mouse_position()
+						global_position = global_position.snapped(Global.TILE_SIZE)
+					else:
+						ideal_global_position = ideal_global_position.move_toward(get_global_mouse_position(), 80)
+						_tween_position_property()
 				if Global.control_type == 2:
 					moused = "-Mouse"
 				else:
@@ -136,9 +138,10 @@ func _calculate_ideal_global_position() -> Vector2:
 
 
 func _set_color(rect_0_minus_color: float = 0.2, rect_other: float = 0) -> void:
-	color_rect_0.color = Color(color.r - rect_0_minus_color, color.g - rect_0_minus_color, color.b - rect_0_minus_color)
+	color_rect_0.color = Color(color.r - rect_0_minus_color, color.g - rect_0_minus_color, color.b - rect_0_minus_color, color.a)
 	for i in rect_arr.size():
-		rect_arr[i].color = Color(color.r - rect_other, color.g - rect_other, color.b - rect_other)
+		rect_arr[i].color = Color(color.r - rect_other, color.g - rect_other, color.b - rect_other, color.a)
+
 
 func _set_position() -> void:
 	for i in rect_arr.size():
@@ -148,6 +151,7 @@ func _set_position() -> void:
 			rect_arr[i].position.x = coord_arr[i].x * Global.TILE_SIZE.x - BLOCK_SIZE/2
 			rect_arr[i].position.y = coord_arr[i].y * Global.TILE_SIZE.y - BLOCK_SIZE/2
 	_set_color()
+
 
 func _rotate() -> void:
 	ideal_rotation_degrees += ideal_scale_x * int(Global.ROTATION_DEGREES_AMOUNT)
@@ -235,3 +239,21 @@ func _subject_info_grab(subject_num: int) -> void:
 		ideal_scale_x = Global.subject_info[2]
 		rotation_2d.rotation_degrees = ideal_rotation_degrees
 		flip_2d.scale.x = ideal_scale_x
+
+
+func subject_change_property(type: String) -> void:
+	if type == "Transparent":
+		color.a = 1.8 - color.a
+		_set_color()
+	elif Global.current_popup_page == "" and visible and Global.mouse_dragging_item == self_number:
+		match type:
+			"Rotate":
+				_rotate()
+			"Flip":
+				_flip()
+	elif Global.current_popup_page == "" and Global.mouse_dragging_item == -1:
+		match type:
+			"Rotate":
+				_rotate()
+			"Flip":
+				_flip()

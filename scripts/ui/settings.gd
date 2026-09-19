@@ -27,7 +27,7 @@ func _on_button_pressed(button_name: String) -> void:
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Settings"):
-		on_settings_button_pressed()
+		EventBus.on_settings_button_pressed.emit()
 	if Input.is_action_just_pressed("UI"):
 		EventBus.update_UI.emit("visibility")
 
@@ -117,7 +117,7 @@ func _item_0(copy: bool) -> void:
 
 func _item_1(copy: bool) -> void:
 	if copy:
-		Global.subject_info[1] += 360
+		Global.subject_info[1] += 720
 		Global.subject_info[1] %= 360
 		Global.subject_info[1] /= Global.ROTATION_DEGREES_AMOUNT
 	else:

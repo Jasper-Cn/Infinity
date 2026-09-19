@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8627451)
 
-[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "paste_button", "timer")]
+[node name="Settings" type="CanvasLayer" unique_id=271222457 node_paths=PackedStringArray("animations_button", "sfx_slider", "copy_button", "paste_button", "timer", "panel")]
 script = ExtResource("1_5p8wc")
 animations_button = NodePath("Panel/MarginContainer/VB/HB rotation animations/rotation animations Button")
 sfx_slider = NodePath("Panel/MarginContainer/VB/HBsfx/sfx Slider")
@@ -16,6 +16,7 @@ copy_button = NodePath("Panel/MarginContainer/VB/copy Button")
 paste_button = NodePath("Panel/MarginContainer/VB/paste Button")
 timer = NodePath("Timer")
 popup_name = "Settings"
+panel = NodePath("Panel")
 
 [node name="Panel" type="Panel" parent="." unique_id=401543779]
 self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)

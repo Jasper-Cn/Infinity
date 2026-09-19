@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d13baxhqbwdm6"]
 
 [ext_resource type="Script" uid="uid://dorugav5a4nj5" path="res://scripts/ui/ui.gd" id="1_nt7q6"]
-[ext_resource type="Theme" uid="uid://b2ig6ep5voqsk" path="res://resources/default.tres" id="2_x4jx1"]
 
 [sub_resource type="Theme" id="Theme_nt7q6"]
 
@@ -16,40 +15,44 @@ ui = NodePath("Panel/VBoxContainer/UI")
 [node name="Panel" type="Panel" parent="." unique_id=1760701443]
 offset_right = 440.0
 offset_bottom = 333.0
-mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=266278716]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 0
 offset_right = 436.0
 offset_bottom = 385.0
-mouse_filter = 2
 theme = SubResource("Theme_nt7q6")
-theme_override_constants/separation = 19
+theme_override_constants/separation = 7
 
-[node name="Settings" type="Label" parent="Panel/VBoxContainer" unique_id=151139914]
+[node name="Settings" type="Button" parent="Panel/VBoxContainer" unique_id=987361081]
 layout_mode = 2
-theme = ExtResource("2_x4jx1")
+mouse_filter = 1
 text = "Q = open settings"
 
-[node name="Rotate" type="Label" parent="Panel/VBoxContainer" unique_id=713321020]
+[node name="Rotate" type="Button" parent="Panel/VBoxContainer" unique_id=827461902]
 layout_mode = 2
+mouse_filter = 1
 text = "R = rotate 90 deg"
 
-[node name="Flip" type="Label" parent="Panel/VBoxContainer" unique_id=498112803]
+[node name="Flip" type="Button" parent="Panel/VBoxContainer" unique_id=302819902]
 layout_mode = 2
+mouse_filter = 1
 text = "F = flip horizontally"
 
-[node name="Transparency" type="Label" parent="Panel/VBoxContainer" unique_id=906941563]
+[node name="Transparency" type="Button" parent="Panel/VBoxContainer" unique_id=66080404]
 layout_mode = 2
+mouse_filter = 1
 text = "T = make semi-transparent"
 
-[node name="Numbers" type="Label" parent="Panel/VBoxContainer" unique_id=989128876]
-visible = false
+[node name="UI" type="Button" parent="Panel/VBoxContainer" unique_id=1312698615]
 layout_mode = 2
-text = "Numbers = show/hide
-that nubmer block"
-
-[node name="UI" type="Label" parent="Panel/VBoxContainer" unique_id=1744126317]
-layout_mode = 2
+mouse_filter = 1
 text = "E = show/hide the UI"
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse" binds= [false]]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse" binds= [true]]
+[connection signal="pressed" from="Panel/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Rotate" to="." method="_on_subject_pressed" binds= ["Rotate"]]
+[connection signal="pressed" from="Panel/VBoxContainer/Flip" to="." method="_on_subject_pressed" binds= ["Flip"]]
+[connection signal="pressed" from="Panel/VBoxContainer/Transparency" to="." method="_on_subject_pressed" binds= ["Transparent"]]
+[connection signal="pressed" from="Panel/VBoxContainer/UI" to="." method="_UI_update" binds= ["visibility"]]
