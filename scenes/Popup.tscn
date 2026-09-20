@@ -4,3 +4,4 @@
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1760953166]
 script = ExtResource("1_4c2u4")
+popup_name = "null"

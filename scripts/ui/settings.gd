@@ -10,6 +10,7 @@ extends PopupUI
 func _ready() -> void:
 	super()
 	sfx_slider.value = 0.2
+	EventBus.on_settings_button_pressed.connect(on_settings_button_pressed)
 	_slider_value_changed(0.2, "SFX")
 
 
@@ -32,27 +33,12 @@ func _unhandled_input(_event: InputEvent) -> void:
 		EventBus.update_UI.emit("visibility")
 
 
-func _on_animations_button_pressed(source: Button, i: int) -> void:
-	Global.animations_type[i] = text_change_3(Global.animations_type[i], source, ["full", "minimal", "off"])
-
-
-func text_change_3(type: Variant, source: Node, texts: Array) -> Variant:
-	type += 1
-	type %= 3
-	source.text = texts[type]
-	return type
-
-
 func _on_control_type_button_pressed(source: BaseButton) -> void:
-	Global.control_type += 1
-	Global.control_type %= 3
-	match Global.control_type:
-		0:
-			source.text = "Multi"
-		1:
-			source.text = "Keyboard"
-		2:
-			source.text = "Mouse"
+	Global.control_type = text_change_3(Global.control_type, source, ["Multi", "Keyboard", "Mouse"])
+	if Global.control_type == 2:
+		Global.moused = "-Mouse"
+	else:
+		Global.moused = ""
 
 
 func _on_copy_button_pressed() -> void:
@@ -60,14 +46,9 @@ func _on_copy_button_pressed() -> void:
 	#var condensed_rotational_and_flip: int
 	for i in Global.NUM_OF_SUBJECTS:
 		EventBus.get_subject_info.emit(i)
-		
-		_item_0(true)
+		item(true)
 		
 		condensed_subject_info += position_to_string(Global.subject_info[0])
-		
-		_item_1(true)
-		_item_2()
-		
 		condensed_subject_info += str(int(Global.subject_info[1] + (Global.subject_info[2] * 360/Global.ROTATION_DEGREES_AMOUNT)))
 	
 	copy_to_clipboard(condensed_subject_info)
@@ -93,45 +74,32 @@ func _on_paste_button_pressed() -> void:
 				int(floor(float(rotation_and_flip_i) / int(360/Global.ROTATION_DEGREES_AMOUNT))),
 			]
 			
-			_item_0(false)
-			
-			_item_1(false)
-			
-			_item_2()
-			
+			item(false)
 			EventBus.set_subject_info.emit(i)
 	
 	paste_button.text = "pasted!"
 	timer.start()
 
 
-func _item_0(copy: bool) -> void:
+func item(copy: bool) -> void:
 	var half_block: Vector2 = floor(Vector2(Global.BOARD_SIZE)/2)
 	if copy:
-		Global.subject_info[0] /= Global.TILE_SIZE
-		Global.subject_info[0] += half_block
+		Global.subject_info[0] = (Global.subject_info[0] / Global.TILE_SIZE) + half_block
 	else:
-		Global.subject_info[0] -= half_block
-		Global.subject_info[0] *= Global.TILE_SIZE 
-
-
-func _item_1(copy: bool) -> void:
+		Global.subject_info[0] = (Global.subject_info[0] - half_block) * Global.TILE_SIZE
+	
 	if copy:
-		Global.subject_info[1] += 720
-		Global.subject_info[1] %= 360
-		Global.subject_info[1] /= Global.ROTATION_DEGREES_AMOUNT
+		Global.subject_info[1] = ((Global.subject_info[1] + 720) % 360) / Global.ROTATION_DEGREES_AMOUNT
 	else:
 		Global.subject_info[1] *= Global.ROTATION_DEGREES_AMOUNT
-
-
-func _item_2() -> void:
+	
 	if not Global.subject_info[2] == 1:
 		Global.subject_info[2] = -Global.subject_info[2] - 1
 
 
 func copy_to_clipboard(clipboard_info: String) -> void:
 	if OS.has_feature("web") and JavaScriptBridge.has_method("eval"):
-		JavaScriptBridge.eval("prompt('Copy this text:', '" + clipboard_info + "');")
+		JavaScriptBridge.eval("prompt('Copy the code:', '" + clipboard_info + "');")
 	else:
 		DisplayServer.clipboard_set(clipboard_info)
 		copy_button.text = "copied!"
@@ -139,7 +107,7 @@ func copy_to_clipboard(clipboard_info: String) -> void:
 
 func paste_from_clipboard() -> String:
 	if OS.has_feature("web") and JavaScriptBridge.has_method("eval"):
-		return JavaScriptBridge.eval("prompt('Paste your text here:');")
+		return JavaScriptBridge.eval("prompt('Paste your code here:');")
 	else:
 		return DisplayServer.clipboard_get()
 
@@ -168,3 +136,16 @@ func position_to_string(position: Vector2) -> String:
 func _on_timer_timeout() -> void:
 	copy_button.text = "Copy arrangement"
 	paste_button.text = "Paste arrangement"
+
+
+func on_settings_button_pressed() -> void:
+	is_root = false
+	for i: int in roots.size():
+		if Global.current_popup_page == roots[i]:
+			Global.current_popup_page = ""
+			EventBus.settings_pages.emit()
+			is_root = true
+			break
+	if not is_root:
+		Global.current_popup_page = roots[0]
+		EventBus.settings_pages.emit()

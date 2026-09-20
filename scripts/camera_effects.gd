@@ -25,6 +25,6 @@ func _move_camera(delta: float) -> void:
 			if Input.is_action_just_pressed("zoom out"):
 				if zoom > Vector2(0.11, 0.11):
 					zoom -= Vector2(0.05, 0.05)
-			if Input.is_action_just_pressed("set camera"):
+			if Input.is_action_just_pressed("space"):
 				position = Vector2(0, -45)
 				zoom = Vector2(2, 2)

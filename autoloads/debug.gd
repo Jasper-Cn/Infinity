@@ -7,13 +7,6 @@ extends CanvasLayer
 var debug_vars_to_update : Dictionary = {}
 
 
-func _process(_delta: float) -> void:
-	#if Input.is_action_just_pressed("toggle debug panel"):
-		#visible = !visible
-	#_update_fps()
-	pass
-
-
 ## WARNING: WILL CAUSE PROBLEMS IF YOU HAVE 2 VARS YOU WANT TO DISPLAY BUT THEY HAVE THE SAME NAME
 ## EVERYTIME YOU RUN IT IT IT WILL UPDATE THAT VARIABLE SO THE BEST IS TO PUT IT IN
 func display_updating_var(variable_label : String, variable : Variant) -> void:

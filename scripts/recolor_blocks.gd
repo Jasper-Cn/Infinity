@@ -14,7 +14,7 @@ func _on_color_picker_button_color_changed(color: Color, subject_num: int) -> vo
 	EventBus.update_subject_color.emit()
 
 
-func _set_color_picker_color(num: int) -> void:
+func _block_set_color_picker_color(num: int) -> void:
 	node_2d.get_child(num).get_child(2).color = subjects.get_child(num).color
 
 
@@ -28,4 +28,4 @@ func get_ref(ref: Node, name_of: String) -> void:
 	if name_of == "subjects":
 		subjects = ref
 		for i in node_2d.get_child_count():
-			_set_color_picker_color(i)
+			_block_set_color_picker_color(i)

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bp7o7pqm85d0f" path="res://art/Infinity Tile Map.png" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cnd4o18ilxp8f" path="res://scenes/subject.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://1oudns23ey8i" path="res://scenes/settings.tscn" id="5_iywne"]
-[ext_resource type="Script" uid="uid://bbqavhpj57n7h" path="res://scenes/subjects.gd" id="5_u5sy4"]
+[ext_resource type="Script" uid="uid://bbqavhpj57n7h" path="res://scripts/subjects.gd" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://basqeimujbb4c" path="res://scenes/board.tscn" id="6_p57ef"]
 
 [sub_resource type="Environment" id="Environment_oooul"]
@@ -38,88 +38,61 @@ timer = NodePath("Timer")
 [node name="Subject0" parent="subjects" unique_id=1716625559 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, 450)
 color = Color(1, 0.39215687, 0.39215687, 1)
-coord_1 = Vector2i(0, 1)
-coord_2 = Vector2i(0, 2)
-coord_3 = Vector2i(0, 3)
+coord_arr = Array[Vector2i]([Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 0)])
 
 [node name="Subject1" parent="subjects" unique_id=1732215189 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, -720)
 color = Color(0.98039216, 0.5882353, 0.39215687, 1)
 self_number = 1
-coord_1 = Vector2i(-1, 0)
-coord_2 = Vector2i(0, 1)
-coord_3 = Vector2i(0, 2)
-coord_4 = Vector2i(1, 0)
+coord_arr = Array[Vector2i]([Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(1, 0)])
 
 [node name="Subject2" parent="subjects" unique_id=176163047 instance=ExtResource("3_lnu2h")]
 position = Vector2(-360, -720)
 color = Color(1, 0.8627451, 0.3137255, 1)
 self_number = 2
-coord_1 = Vector2i(-3, 1)
-coord_2 = Vector2i(-3, 0)
-coord_3 = Vector2i(-2, 0)
-coord_4 = Vector2i(-1, 0)
+coord_arr = Array[Vector2i]([Vector2i(-3, 1), Vector2i(-3, 0), Vector2i(-2, 0), Vector2i(-1, 0)])
 
 [node name="Subject3" parent="subjects" unique_id=1947329708 instance=ExtResource("3_lnu2h")]
 position = Vector2(360, -720)
 color = Color(0.39215687, 1, 0.3137255, 1)
 self_number = 3
-coord_1 = Vector2i(1, 0)
-coord_2 = Vector2i(2, 0)
-coord_3 = Vector2i(2, 1)
-coord_4 = Vector2i(3, 1)
+coord_arr = Array[Vector2i]([Vector2i(1, 0), Vector2i(2, 0), Vector2i(2, 1), Vector2i(3, 1)])
 
 [node name="Subject4" parent="subjects" unique_id=1848087674 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, -450)
 color = Color(0.19607843, 0.39215687, 0.19607843, 1)
 self_number = 4
-coord_1 = Vector2i(-2, 0)
-coord_2 = Vector2i(-2, 1)
-coord_3 = Vector2i(-1, 0)
+coord_arr = Array[Vector2i]([Vector2i(-2, 0), Vector2i(-2, 1), Vector2i(-1, 0), Vector2i(0, 0)])
 
 [node name="Subject5" parent="subjects" unique_id=1881981243 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, -450)
 color = Color(0.19607843, 0.78431374, 1, 1)
 self_number = 5
-coord_1 = Vector2i(1, 0)
-coord_2 = Vector2i(1, 1)
-coord_3 = Vector2i(2, 1)
+coord_arr = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 1), Vector2i(2, 1), Vector2i(0, 0)])
 
 [node name="Subject6" parent="subjects" unique_id=406337915 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, -180)
 color = Color(0.19607843, 0.39215687, 1, 1)
 self_number = 6
-coord_1 = Vector2i(-2, 0)
-coord_2 = Vector2i(-2, 1)
-coord_3 = Vector2i(-2, 2)
-coord_4 = Vector2i(-1, 0)
+coord_arr = Array[Vector2i]([Vector2i(-2, 0), Vector2i(-2, 1), Vector2i(-2, 2), Vector2i(-1, 0)])
 
 [node name="Subject7" parent="subjects" unique_id=1581580784 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, -180)
 color = Color(0.5882353, 0.39215687, 1, 1)
 self_number = 7
-coord_1 = Vector2i(1, 0)
-coord_2 = Vector2i(1, 1)
-coord_3 = Vector2i(1, 2)
-coord_4 = Vector2i(2, 2)
+coord_arr = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 1), Vector2i(1, 2), Vector2i(2, 2)])
 
 [node name="Subject8" parent="subjects" unique_id=816368259 instance=ExtResource("3_lnu2h")]
 position = Vector2(-450, 180)
 color = Color(0.78431374, 0.19607843, 0.78431374, 1)
 self_number = 8
-coord_1 = Vector2i(-2, 0)
-coord_2 = Vector2i(-2, 1)
-coord_3 = Vector2i(-1, 0)
-coord_4 = Vector2i(-1, 1)
+coord_arr = Array[Vector2i]([Vector2i(-2, 0), Vector2i(-2, 1), Vector2i(-1, 0), Vector2i(-1, 1)])
 
 [node name="Subject9" parent="subjects" unique_id=1888462937 instance=ExtResource("3_lnu2h")]
 position = Vector2(450, 180)
 color = Color(0.98039216, 0.39215687, 0.5882353, 1)
 self_number = 9
-coord_1 = Vector2i(0, 1)
-coord_2 = Vector2i(1, 0)
-coord_3 = Vector2i(2, 0)
-coord_4 = Vector2i(2, 1)
+coord_arr = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 0), Vector2i(2, 0), Vector2i(2, 1)])
 
 [node name="Timer" type="Timer" parent="subjects" unique_id=1344756371]
 wait_time = 0.2
@@ -133,7 +106,6 @@ scale = Vector2(5.625, 5.625)
 tile_set = SubResource("TileSet_fwlhj")
 
 [node name="Settings" parent="." unique_id=271222457 instance=ExtResource("5_iywne")]
+visible = false
 
 [connection signal="timeout" from="subjects/Timer" to="subjects" method="_on_timer_timeout"]
-
-[editable path="Settings"]

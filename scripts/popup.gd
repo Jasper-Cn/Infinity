@@ -8,13 +8,11 @@ var roots: Array = ["Settings", "Credits"]
 var is_root: bool = false
 var max_scroll: float
 
+
 func _ready() -> void:
-	EventBus.on_settings_button_pressed.connect(on_settings_button_pressed)
+	
 	EventBus.settings_pages.connect(_show_page)
 	max_scroll = get_viewport().size.y - panel.size.y
-	#print(popup_name + " viewport size: " + str(get_viewport().size.y))
-	#print(popup_name + " panel size: " + str(panel.size.y))
-	#print(popup_name + ": " + str(max_scroll))
 	hide()
 
 
@@ -34,17 +32,14 @@ func _show_page() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	on_settings_button_pressed()
+	EventBus.on_settings_button_pressed.emit()
 
 
-func on_settings_button_pressed() -> void:
-	is_root = false
-	for i: int in roots.size():
-		if Global.current_popup_page == roots[i]:
-			Global.current_popup_page = ""
-			EventBus.settings_pages.emit()
-			is_root = true
-			break
-	if not is_root:
-		Global.current_popup_page = roots[0]
-		EventBus.settings_pages.emit()
+
+
+
+func text_change_3(type: Variant, source: Node, texts: Array) -> Variant:
+	type += 1
+	type %= 3
+	source.text = texts[type]
+	return type

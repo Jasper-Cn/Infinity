@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _UI_update(update_item: String) -> void:
 	if update_item == "visibility":
-		self.visible = not self.visible
+		visible = not visible
 	if update_item == "labels":
 		for i in label_arr.size():
 			var key : String = InputMap.action_get_events(label_arr[i].name)[0].as_text().replace(" - Physical", "")
@@ -41,4 +41,4 @@ func _on_subject_pressed(type: String) -> void:
 
 
 func _on_panel_mouse(extra_arg_0: bool) -> void:
-	Global.mouse_over_ui_panel = extra_arg_0
+	Global.mouse_not_over_ui_panel = extra_arg_0

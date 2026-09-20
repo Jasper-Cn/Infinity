@@ -7,7 +7,6 @@ var rebinding_button : Button
 var prev_event: InputEvent
 
 
-
 func _rebind_button_pressed(source_id: Object, source_name: String) -> void:
 	if not is_rebinding:
 		rebinding_key = source_name

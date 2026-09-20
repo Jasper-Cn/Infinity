@@ -196,17 +196,12 @@ _data = {
 &"rotate to 90": SubResource("Animation_s3p0e")
 }
 
-[node name="Subject" type="Node2D" unique_id=1732215189 node_paths=PackedStringArray("color_rect_0", "color_rect_1", "color_rect_2", "color_rect_3", "color_rect_4", "color_rect_5", "rotation_2d", "flip_2d", "label")]
+[node name="Subject" type="Node2D" unique_id=1732215189 node_paths=PackedStringArray("color_rect_0", "color_rect_arr", "node_arr")]
 script = ExtResource("1_8psgo")
+coord_arr = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0)])
 color_rect_0 = NodePath("Flip2D/Rotation2D/ColorRect0")
-color_rect_1 = NodePath("Flip2D/Rotation2D/ColorRect1")
-color_rect_2 = NodePath("Flip2D/Rotation2D/ColorRect2")
-color_rect_3 = NodePath("Flip2D/Rotation2D/ColorRect3")
-color_rect_4 = NodePath("Flip2D/Rotation2D/ColorRect4")
-color_rect_5 = NodePath("Flip2D/Rotation2D/ColorRect5")
-rotation_2d = NodePath("Flip2D/Rotation2D")
-flip_2d = NodePath("Flip2D")
-label = NodePath("Label")
+color_rect_arr = [NodePath("Flip2D/Rotation2D/ColorRect1"), NodePath("Flip2D/Rotation2D/ColorRect2"), NodePath("Flip2D/Rotation2D/ColorRect3"), NodePath("Flip2D/Rotation2D/ColorRect4")]
+node_arr = [NodePath("Flip2D/Rotation2D"), NodePath("Flip2D"), NodePath("Label")]
 
 [node name="AP Rotation" type="AnimationPlayer" parent="." unique_id=224482306]
 libraries/ = SubResource("AnimationLibrary_s3p0e")
@@ -236,6 +231,7 @@ offset_top = 50.0
 offset_right = 40.0
 offset_bottom = 130.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 color = Color(1, 1, 1, 0.5019608)
 
 [node name="ColorRect2" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=1698436789]
@@ -244,6 +240,7 @@ offset_top = -40.0
 offset_right = 130.0
 offset_bottom = 40.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 color = Color(1, 1, 1, 0.5019608)
 
 [node name="ColorRect3" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=205846608]
@@ -252,6 +249,7 @@ offset_top = -40.0
 offset_right = -50.0
 offset_bottom = 40.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 color = Color(1, 1, 1, 0.5019608)
 
 [node name="ColorRect4" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=228245465]
@@ -263,7 +261,7 @@ pivot_offset = Vector2(40, 40)
 mouse_filter = 2
 color = Color(1, 1, 1, 0.5019608)
 
-[node name="ColorRect5" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=1736429884]
+[node name="DetectorColorRect" type="ColorRect" parent="Flip2D/Rotation2D" unique_id=1736429884]
 offset_left = -44.0
 offset_top = -44.0
 offset_right = 44.0
@@ -281,5 +279,5 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="mouse_entered" from="Flip2D/Rotation2D/ColorRect5" to="." method="_on_color_rect_5_mouse" binds= [true]]
-[connection signal="mouse_exited" from="Flip2D/Rotation2D/ColorRect5" to="." method="_on_color_rect_5_mouse" binds= [false]]
+[connection signal="mouse_entered" from="Flip2D/Rotation2D/DetectorColorRect" to="." method="_on_detector_color_rect_mouse" binds= [true]]
+[connection signal="mouse_exited" from="Flip2D/Rotation2D/DetectorColorRect" to="." method="_on_detector_color_rect_mouse" binds= [false]]
