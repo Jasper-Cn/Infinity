@@ -1,9 +1,0 @@
-res://scenes/settings.tscn
-res://resources/sine_fade.gdshader
-res://scripts/ui/settings.gd
-res://scenes/animations.tscn
-res://scripts/animations.gd
-res://scenes/game.tscn
-res://scripts/popup.gd
-res://scenes/Popup.tscn
-res://scripts/subject.gd
